@@ -1,0 +1,78 @@
+body{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    margin:0px;
+}
+
+header {
+    background-color: #324553;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px 10px 20px;
+}
+
+#header_partie_gauche > * {
+    margin-right:10px;
+}
+
+#header_partie_droite {
+    display:flex;
+    align-items:center;
+}
+
+#header_partie_droite > * {
+    margin-right:7px;
+    margin-left:7px;
+}
+
+.style_button {
+    background-color: #432928;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:10px;
+    text-decoration: none;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.style_button:hover {
+    background-color: #503130;
+}
+
+#logo_img {
+    height:50px;
+    margin-left:10px;
+}
+
+#panier_img , #deconnexion {
+    height:40px;
+}
+
+#deconnexion:hover {
+    cursor:pointer;
+}
+
+.utilisateur_authentifié , .cantiniere {
+    display:none;
+}
+
+#avatar {
+    max-width:60px;
+    max-height:50px;
+    border-radius:5px;
+}
+
+#bg{
+    background-image: url("../images/wallpaper cafeteria.jpg");
+    background-size: cover;
+    background-position:center;
+    margin-top:0px;
+    flex:1;
+}

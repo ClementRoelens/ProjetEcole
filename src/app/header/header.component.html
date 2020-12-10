@@ -1,12 +1,22 @@
 <ion-header>
-    <ion-img src="/assets/images/logoDeco.png" alt="Déconnexion"></ion-img>
-    <ion-img src="/assets/images/logo.png" alt="Retour à l'accueil"></ion-img>
-    <ion-button [routerLink]="'/inscription'">S'inscrire</ion-button>
-    <ion-button [routerLink]="'/connexion'">Se connecter</ion-button>
-    <ion-icon name="menu-outline">
-        <ion-button *ngIf="isConnected" [routerLink]="'/menu_utilisateur'">{{username}}</ion-button>
-        <ion-img src="/assets/images/panier.png" alt="Panier"></ion-img>
-    </ion-icon>
-    
-    <ion-img [src]="userImage" alt="Avatar"></ion-img>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="8">
+                <ion-img src="/assets/images/logo.png" alt="Retour à l'accueil" id="logo"></ion-img>
+            </ion-col>
+            <ion-col>
+                <ion-img [src]="userImage" alt="Avatar"></ion-img>
+            </ion-col>
+            <ion-col>
+                <ion-icon (click)="menuPopover($event)" name="menu-outline"></ion-icon>
+                <!-- <ion-menu>
+                    <ion-img src="/assets/images/logoDeco.png" alt="Déconnexion"></ion-img>
+                    <ion-button [routerLink]="'/inscription'">S'inscrire</ion-button>
+                    <ion-button [routerLink]="'/connexion'">Se connecter</ion-button>
+                    <ion-button *ngIf="isConnected" [routerLink]="'/menu_utilisateur'">{{username}}</ion-button>
+                    <ion-img src="/assets/images/panier.png" alt="Panier"></ion-img>
+                </ion-menu> -->
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-header>

@@ -13,7 +13,12 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [AppComponent,HeaderComponent],
   entryComponents: [],
+<<<<<<< HEAD
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HeaderComponent],
+=======
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  exports: [],
+>>>>>>> b6acbd9caf68431b91f8c47cd6b12c607ab69292
   providers: [
     StatusBar,
     SplashScreen,

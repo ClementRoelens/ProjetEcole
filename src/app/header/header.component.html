@@ -1,15 +1,12 @@
-<header>
-  <img id='logo_img' src="../../assets/images/logo.png" alt="Logo de l'appli">
-  <div id='header_partie_droite'>
-      <a class='header_button' href="inscription.htm">
-          S'inscrire
-      </a>
-      <a class='header_button' href="connexion.htm"> 
-          Se connecter
-      </a>
-      <a href="panier.htm">
-          <img id='panier_img' src="../../assets/images/panier.png" alt="Logo du panier">
-      </a>
-  </div>
-  
-</header>
+<ion-header>
+    <ion-img src="/assets/images/logoDeco.png" alt="Déconnexion"></ion-img>
+    <ion-img src="/assets/images/logo.png" alt="Retour à l'accueil"></ion-img>
+    <ion-button [routerLink]="'/inscription'">S'inscrire</ion-button>
+    <ion-button [routerLink]="'/connexion'">Se connecter</ion-button>
+    <ion-icon name="menu-outline">
+        <ion-button *ngIf="isConnected" [routerLink]="'/menu_utilisateur'">{{username}}</ion-button>
+        <ion-img src="/assets/images/panier.png" alt="Panier"></ion-img>
+    </ion-icon>
+    
+    <ion-img [src]="userImage" alt="Avatar"></ion-img>
+</ion-header>

@@ -1,0 +1,47 @@
+ion-content{
+    --background: #fff url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
+}
+
+ion-item#input{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+p {
+    color: white;
+}
+
+/*
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+}
+
+form button{
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #432928;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:15px;
+    text-decoration: none;
+}
+
+form input{
+    padding: 10px;
+    border-radius:5px;
+    background-color: #bbbbbb;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+form button:hover{
+    background-color: #6e4342;
+}
+*/

@@ -15,6 +15,6 @@ import { HeaderComponent } from '../header/header.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage,HeaderComponent]
+  declarations: [HomePage, HeaderComponent]
 })
 export class HomePageModule {}

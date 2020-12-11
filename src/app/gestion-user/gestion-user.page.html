@@ -1,0 +1,33 @@
+<ion-header>
+  <app-header></app-header>
+  </ion-header>
+    
+<ion-content class="ion-text-center">
+<br><br><br>
+  <p>Trouver un utilisateur</p>
+
+  <ion-item id="input" class="ion-margin-vertical">
+    <ion-input placeholder="Nom" type="email"></ion-input>
+  </ion-item>
+
+  <ion-button color="primary"><b></b>Rechercher</ion-button><br><br>
+
+
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col><b>Nom</b></ion-col>
+        <ion-col><b>Prenom</b></ion-col>
+        <ion-col><b>Cagnotte</b></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row  *ngFor="let user of ListUsers; let i=index">
+        <ion-col>{{ user.name }}</ion-col>
+        <ion-col>{{ user.firstname }}</ion-col>
+        <ion-col>{{ user.wallet }}€</ion-col>
+        <ion-col><ion-button [routerLink]="'/gestion-cagnotte/' + i" color="secondary" size="small"><img id="loupe" src="../../assets/images/loupe.png"></ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+</ion-content>

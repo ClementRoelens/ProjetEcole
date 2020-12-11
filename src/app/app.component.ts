@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { GestionUSerPage } from '../app/gestion-user/gestion-user.page';
+import { GestionCagnottePage } from '../app/gestion-cagnotte/gestion-cagnotte.page';
 
 @Component({
   selector: 'app-root',

@@ -1,0 +1,207 @@
+<ion-header>
+<app-header></app-header>
+</ion-header>
+  
+  <ion-content class="ion-text-center">
+  <br><br><br><br>
+
+  
+    <ion-button routerLink="/gestion-user" size="medium" color="secondary" id="btnRetour"> <ion-label ><img id="loupe" src="../../assets/images/back.png"></ion-label></ion-button>
+     
+    <p>Nom :</p>
+    <ion-item id="input">
+      <ion-input type="nom" readonly="readonly" >{{ unNomUser }}</ion-input>
+    </ion-item>
+    <p>Prenom :</p>
+    <ion-item id="input">
+      <ion-input type="prenom" readonly="readonly">{{ unPrenomUser }}</ion-input>
+    </ion-item>
+    <p>Mail :</p>
+    <ion-item id="input">
+      <ion-input type="mail" readonly="readonly">{{ unEmailUser }}</ion-input>
+    </ion-item>
+    <p>Tel :</p>
+    <ion-item id="input">
+      <ion-input type="tel" readonly="readonly">{{ unTelUser }}</ion-input>
+    </ion-item>
+
+    <p>Cagnotte :</p>
+    <ion-item id="input">
+      <ion-input type="cagnotte" readonly="readonly">{{ uneCagnotteUser }}</ion-input>
+    </ion-item>
+    <ion-button (click)="crediter()">Créditer</ion-button><ion-button (click)="solder()">Solder</ion-button>
+
+    <br><br>
+
+    <p><u>Commandes :</u></p>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4 >
+        <ion-label ><b>Date</b></ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label ><b>Prix</b></ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label ><b>Plat</b></ion-label>
+      </ion-col>
+      
+    </ion-row>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row><ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+        <ion-label >10/12/2020</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label >12€</ion-label>
+      </ion-col>
+        <ion-col col-4>
+        <ion-label >Pizza</ion-label>
+      </ion-col>
+    </ion-row>
+
+  </ion-content>

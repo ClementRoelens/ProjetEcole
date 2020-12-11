@@ -12,6 +12,14 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'gestion-user',
+    loadChildren: () => import('./gestion-user/gestion-user.module').then( m => m.GestionUSerPageModule)
+  },
+  {
+    path: 'gestion-cagnotte/:id',
+    loadChildren: () => import('./gestion-cagnotte/gestion-cagnotte.module').then( m => m.GestionCagnottePageModule)
+  },
+  {
     path: 'menu-semaine',
     loadChildren: () => import('./menu-semaine/menu-semaine.module').then( m => m.MenuSemainePageModule)
   },

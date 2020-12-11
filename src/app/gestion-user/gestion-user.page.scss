@@ -1,21 +1,26 @@
 ion-content{
-    --background: #fff url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
+    --background:url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
   }
   
   ion-row{
-    text-align: center;
-    color: black;
-    background-color: whitesmoke;
-    border: 15px  black;
-    padding: 10px;
+    vertical-align:middle;
+  border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ text-align: center;
+ align-items: center;
   }
 
-  
   ion-item#input{
     padding-left: 20%;
     padding-right: 20%;
   }
   
+
+  ion-col{
+    padding: 10px;
+  }
+
   p {
     color: white;
   }

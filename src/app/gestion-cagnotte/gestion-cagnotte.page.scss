@@ -12,11 +12,21 @@ ion-content{
     color: white;
     font-weight: bold;
   }
-  
   ion-row{
-    text-align: center;
-    color: black;
-    background-color: whitesmoke;
-    border: 1px  black;
+    vertical-align:middle;
+  border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ background-color: whitesmoke;
+ text-align: center;
+ align-items: center;
+  }
+
+  ion-item#input{
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  ion-col{
     padding: 10px;
   }

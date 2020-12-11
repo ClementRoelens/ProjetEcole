@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./gestion-user/gestion-user.module').then( m => m.GestionUSerPageModule)
   },
   {
-    path: 'gestion-cagnotte',
+    path: 'gestion-cagnotte/:id',
     loadChildren: () => import('./gestion-cagnotte/gestion-cagnotte.module').then( m => m.GestionCagnottePageModule)
   },
   {

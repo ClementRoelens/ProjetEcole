@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HeaderComponent } from '../header/header.component';
 import { GestionUSerPage } from '../gestion-user/gestion-user.page';
 import { GestionCagnottePage } from '../gestion-cagnotte/gestion-cagnotte.page';
+import { MypopComponentModule } from '../header/mypop/mypop.component.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { GestionCagnottePage } from '../gestion-cagnotte/gestion-cagnotte.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    MypopComponentModule
   ],
   declarations: [HomePage, HeaderComponent, GestionUSerPage, GestionCagnottePage]
 })

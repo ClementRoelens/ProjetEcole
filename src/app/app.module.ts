@@ -8,12 +8,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MypopComponent} from "./header/mypop/mypop.component";
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
-  declarations: [AppComponent,MypopComponent],
-  entryComponents: [MypopComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   exports: [],
   providers: [
     StatusBar,

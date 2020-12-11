@@ -27,6 +27,14 @@ const routes: Routes = [
     path: 'modal',
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   },
+  {
+    path: 'reinitialisation-mdp',
+    loadChildren: () => import('./reinitialisation-mdp/reinitialisation-mdp.module').then( m => m.ReinitialisationMdpPageModule)
+  },
+  {
+    path: 'infos-user',
+    loadChildren: () => import('./infos-user/infos-user.module').then( m => m.InfosUserPageModule)
+  }
 ];
 
 @NgModule({

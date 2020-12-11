@@ -1,15 +1,22 @@
-<header>
-  <img id='logo_img' src="../../assets/images/logo.png" alt="Logo de l'appli">
-  <div id='header_partie_droite'>
-      <a class='header_button' href="inscription.htm">
-          S'inscrire
-      </a>
-      <a class='header_button' href="connexion.htm"> 
-          Se connecter
-      </a>
-      <a href="panier.htm">
-          <img id='panier_img' src="../../assets/images/panier.png" alt="Logo du panier">
-      </a>
-  </div>
-  
-</header>
+<ion-header>
+    <ion-grid>
+        <ion-row class="ion-justify-content-between">
+            <ion-col>
+                <div>
+                    <ion-img src="/assets/images/logoDeco.png" alt="Déconnexion" class="ion-hide-sm-down"></ion-img>
+                    <ion-img src="/assets/images/logo.png" alt="Retour à l'accueil" id="logo"></ion-img>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div class="ion-hide-sm-down" width-sm="0">
+                    <ion-button [routerLink]="'/inscription'">S'inscrire</ion-button>
+                    <ion-button [routerLink]="'/connexion'">Se connecter</ion-button>
+                    <ion-img src="/assets/images/panier.png" alt="Panier"></ion-img>
+                    <ion-img [src]="userImage" alt="Avatar"></ion-img>
+                </div>
+                <img [src]="userImage" alt="Avatar" class="ion-hide-sm-up">
+                <ion-icon (click)="menuPopover($event)" name="menu-outline" class="ion-hide-sm-up" size-sm="1"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>

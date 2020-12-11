@@ -12,6 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+<<<<<<< HEAD
     path: 'gestion-user',
     loadChildren: () => import('./gestion-user/gestion-user.module').then( m => m.GestionUSerPageModule)
   },
@@ -20,6 +21,31 @@ const routes: Routes = [
     loadChildren: () => import('./gestion-cagnotte/gestion-cagnotte.module').then( m => m.GestionCagnottePageModule)
   },
 
+=======
+    path: 'menu-semaine',
+    loadChildren: () => import('./menu-semaine/menu-semaine.module').then( m => m.MenuSemainePageModule)
+  },
+  {
+    path: 'carte',
+    loadChildren: () => import('./carte/carte.module').then( m => m.CartePageModule)
+  },
+  {
+    path: 'gestion-commandes',
+    loadChildren: () => import('./gestion-commandes/gestion-commandes.module').then( m => m.GestionCommandesPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'reinitialisation-mdp',
+    loadChildren: () => import('./reinitialisation-mdp/reinitialisation-mdp.module').then( m => m.ReinitialisationMdpPageModule)
+  },
+  {
+    path: 'infos-user',
+    loadChildren: () => import('./infos-user/infos-user.module').then( m => m.InfosUserPageModule)
+  }
+>>>>>>> dev
 ];
 
 @NgModule({

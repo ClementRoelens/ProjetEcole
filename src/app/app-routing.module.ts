@@ -12,7 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-<<<<<<< HEAD
     path: 'gestion-user',
     loadChildren: () => import('./gestion-user/gestion-user.module').then( m => m.GestionUSerPageModule)
   },
@@ -20,8 +19,7 @@ const routes: Routes = [
     path: 'gestion-cagnotte',
     loadChildren: () => import('./gestion-cagnotte/gestion-cagnotte.module').then( m => m.GestionCagnottePageModule)
   },
-
-=======
+  {
     path: 'menu-semaine',
     loadChildren: () => import('./menu-semaine/menu-semaine.module').then( m => m.MenuSemainePageModule)
   },
@@ -45,7 +43,6 @@ const routes: Routes = [
     path: 'infos-user',
     loadChildren: () => import('./infos-user/infos-user.module').then( m => m.InfosUserPageModule)
   }
->>>>>>> dev
 ];
 
 @NgModule({

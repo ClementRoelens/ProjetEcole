@@ -1,0 +1,21 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content scroll-y="false" class="ion-text-center">
+
+  <p>Réinitialisation du mot de passe</p>
+
+  <form (ngSubmit)="onSend(email)">
+    <ion-item id="input" class="ion-margin-vertical">
+      <ion-input (ionChange)="change()" [(ngModel)]="email"
+                  name="email" 
+                  type="email" 
+                  required="true" 
+                  placeholder="Email">
+      </ion-input>
+    </ion-item>
+    <ion-button [disabled]="!isEmailValid" type="submit" class="ion-margin-bottom" color="primary">Envoyer</ion-button>
+  </form>
+
+</ion-content>

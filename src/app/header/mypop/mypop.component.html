@@ -1,0 +1,7 @@
+<ion-list color="primary">
+  <ion-item color="primary">Panier</ion-item>
+  <ion-item [routerLink]="'/inscription'" color="primary">S'inscrire</ion-item>
+  <ion-item [routerLink]="'/connexion'" color="primary">Se connecter</ion-item>
+  <ion-item *ngIf="isConnected" [routerLink]="'/menu_utilisateur'" color="primary">{{username}}</ion-item>
+  <ion-item color="primary">Déconnexion</ion-item>
+</ion-list>

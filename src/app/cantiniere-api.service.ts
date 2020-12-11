@@ -13,5 +13,14 @@ export class CantiniereAPIService {
   forgotPassword(email: string){
     return this.http.post(BASE_URL + "forgotpassword?email=" + email, null)
   }
+  
+  findUser(id: number, token: string){
+
+    let options = {
+      headers: {"Authorization": token}
+    }
+
+    return this.http.get(BASE_URL + "user/find/" + id, options)
+  }
 
 }

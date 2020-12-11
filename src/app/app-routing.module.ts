@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'reinitialisation-mdp',
+    loadChildren: () => import('./reinitialisation-mdp/reinitialisation-mdp.module').then( m => m.ReinitialisationMdpPageModule)
+  },
+  {
+    path: 'infos-user',
+    loadChildren: () => import('./infos-user/infos-user.module').then( m => m.InfosUserPageModule)
+  }
 ];
 
 @NgModule({

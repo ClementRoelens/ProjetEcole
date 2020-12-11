@@ -1,0 +1,14 @@
+.carte-cat{
+    display:flex;
+    justify-content: space-between;
+}
+.plat.cat{
+    min-height:30px !important;
+    min-width: 60px;
+}
+.fond-carte{
+    background-color:rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding-right:50px;
+    padding-left:50px;
+}

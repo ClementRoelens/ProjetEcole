@@ -12,16 +12,16 @@
     </div>
     <div class='flex content'>
       <!-- <ion-button (click)="showModal()"></ion-button> -->
-      <ion-grid>
+      <ion-grid *ngFor="let menu of menus">
         <ion-row >
-          <ion-col size="12">
+          <ion-col size-md-3>
         <article (click)="showModal()" >
           <ion-card >
             <ion-card-header>
               
               <ion-card-title>
-                <a class='btn style_button' href="carte.html">
-                Menu du Lundi
+                <a class='btn style_button' routerLink="/carte">
+                Menu du {{ menu.day }}
                 </a>
               </ion-card-title>
               <ion-card-subtitle>
@@ -37,264 +37,26 @@
           
             <ion-card-subtitle><p>Plat "un"</p></ion-card-subtitle>
             <div class='plat'>
-              <ul>
-                <li>Melon<br/></li>
-                <li>Sauce bolognaise végétale aux fèves et courgettesBIO<br/></li>
-                <li>Pommes de terre grenaille<br/></li>
-                <li>Yaourt nature<br/></li>
+              <ul >
+                <li *ngFor="let plat of menu.plat1; let i=index">{{ plat }}</li>
               </ul>
             </div>
               <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
             <div class='plat'>
               <ul>
-                <li>Bruchetta mozzarella<br/></li>
-                <li>Escalope de poulet Yassa<br/></li>
-                <li>Semoule BIO<br/></li>
-                <li>Fruit de saison<br/></li>
+                <li *ngFor="let plat of menu.plat2; let i=index">{{ plat }}</li>
               </ul>
             </div>
               
           </ion-card>
         </article>
       </ion-col>
-      <ion-col size="12">
-        <article (click)="showModal()" >
-          <ion-card>
-            <ion-card-header>
-              
-              <ion-card-title>
-                <a class='btn style_button' href="carte.html">
-                Menu du Mardi
-                </a>
-              </ion-card-title>
-              <ion-card-subtitle>
-                <div >menu du jour</div >
-                
-              </ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-          
-            <ion-card-subtitle><p>Plat "un"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Melon<br/></li>
-                <li>Sauce bolognaise végétale aux fèves et courgettesBIO<br/></li>
-                <li>Pommes de terre grenaille<br/></li>
-                <li>Yaourt nature<br/></li>
-              </ul>
-            </div>
-              <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Bruchetta mozzarella<br/></li>
-                <li>Escalope de poulet Yassa<br/></li>
-                <li>Semoule BIO<br/></li>
-                <li>Fruit de saison<br/></li>
-              </ul>
-            </div>
-              
-          </ion-card>
-        </article>
-      </ion-col>
-      <ion-col size="12">
       
-        <article (click)="showModal()" >
-          <ion-card>
-            <ion-card-header>
-              
-              <ion-card-title>
-                <a class='btn style_button' href="carte.html">
-                Menu du Mercredi
-                </a>
-              </ion-card-title>
-              <ion-card-subtitle>
-                <div >menu du jour</div >
-                
-              </ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-          
-            <ion-card-subtitle><p>Plat "un"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Melon<br/></li>
-                <li>Sauce bolognaise végétale aux fèves et courgettesBIO<br/></li>
-                <li>Pommes de terre grenaille<br/></li>
-                <li>Yaourt nature<br/></li>
-              </ul>
-            </div>
-              <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Bruchetta mozzarella<br/></li>
-                <li>Escalope de poulet Yassa<br/></li>
-                <li>Semoule BIO<br/></li>
-                <li>Fruit de saison<br/></li>
-              </ul>
-            </div>
-              
-          </ion-card>
-        </article>
-      </ion-col > 
-      <ion-col size="12">
-        <article (click)="showModal()" >
-          <ion-card>
-            <ion-card-header>
-              
-              <ion-card-title>
-                <a class='btn style_button' href="carte.html">
-                Menu du Jeudi
-                </a>
-              </ion-card-title>
-              <ion-card-subtitle>
-                <div >menu du jour</div >
-                
-              </ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-          
-            <ion-card-subtitle><p>Plat "un"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Melon<br/></li>
-                <li>Sauce bolognaise végétale aux fèves et courgettesBIO<br/></li>
-                <li>Pommes de terre grenaille<br/></li>
-                <li>Yaourt nature<br/></li>
-              </ul>
-            </div>
-              <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Bruchetta mozzarella<br/></li>
-                <li>Escalope de poulet Yassa<br/></li>
-                <li>Semoule BIO<br/></li>
-                <li>Fruit de saison<br/></li>
-              </ul>
-            </div>
-              
-          </ion-card>
-        </article>
-        <article (click)="showModal()" >
-          <ion-card>
-            <ion-card-header>
-              
-              <ion-card-title>
-                <a class='btn style_button' href="carte.html">
-                Menu du Vendredi
-                </a>
-              </ion-card-title>
-              <ion-card-subtitle>
-                <div >menu du jour</div >
-                
-              </ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-          
-            <ion-card-subtitle><p>Plat "un"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Melon<br/></li>
-                <li>Sauce bolognaise végétale aux fèves et courgettesBIO<br/></li>
-                <li>Pommes de terre grenaille<br/></li>
-                <li>Yaourt nature<br/></li>
-              </ul>
-            </div>
-              <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
-            <div class='plat'>
-              <ul>
-                <li>Bruchetta mozzarella<br/></li>
-                <li>Escalope de poulet Yassa<br/></li>
-                <li>Semoule BIO<br/></li>
-                <li>Fruit de saison<br/></li>
-              </ul>
-            </div>
-              
-          </ion-card>
-        </article>
-          </ion-col>
+      
+      
         </ion-row>
       </ion-grid>
-        <!-- <article>
-            <div class='bouton'>
-                <a class='btn style_button' href="carte.html">
-                Mardi
-                </a>
-            </div>
-            <div class='plat'>-Carottes râpées vinaigrette<br/>
-                -Risotto au maroilles<br/>
-                -Champignons et crème de maroilles<br/>
-                -Fromage blanc BIO vanille</div>
-            <div class='plat'>-Salade grecque et féta<br/>
-                -Rôti de veau sauce gribiche<br/>
-                -Salade de pommes de terre (haricots verts,
-                -tomates vinaigrette)<br/>
-                -Fruit de saison BIO*</div>
-        </article>
-        <article>
-            <div class='bouton'>
-                <a class='btn style_button' href="carte.html">
-                Mercredi
-                </a>
-            </div>
-            <div class='plat'>-Betteraves et maïs<br/>
-                -Couscous végétarien<br/>
-                -BoulgourBIO<br/>
-                -Yaourt aux fruits </div>
-            <div class='plat'>-Haut de cuisse de poulet basquaise<br/>
-                -RizBIO<br/>
-                -Citadelle du Beffroi<br/>
-                -Fruit de saison BiO*</div>
-        </article>
-        </div>
-        <div class='flex content'>
-        <article>
-            <div class='bouton'>
-                <a class='btn style_button' href="carte.html">
-                Jeudi
-                </a>
-            </div>
-            <div class='plat'>-Laitue et radis vinaigrette<br/>
-                -Filet de lieu sauce chicorée et rouy<br/>
-                -Blé safrané & duo de courgettes<br/>
-                -Petit suisse nature</div>
-            <div class='plat'>-Poireaux vinaigrette<br/>
-                -Omelette et sa garniture d’oignons &
-                -champignons<br/>
-                -Purée de pommes de terre & brocolis<br/>
-                -Fruit de saison</div>
-        </article>
-        <article>
-            <div class='bouton'>
-                <a class='btn style_button' href="carte.html">
-                Vendredi
-                </a>
-            </div>
-            <div class='plat'>Melon<br/>
-                -Sauce bolognaise végétale aux fèves et
-                -courgettesBIO<br/>
-                -Pommes de terre grenaille<br/>
-                -Yaourt nature</div>
-            <div class='plat'>-Haut de cuisse de poulet basquaise<br/>
-                -RizBIO<br/>
-                -Citadelle du Beffroi<br/>
-                -Fruit de saison BiO*</div>
-        </article> -->
+        
     </div>
             
 </section>

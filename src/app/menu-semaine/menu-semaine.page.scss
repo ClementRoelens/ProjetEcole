@@ -89,7 +89,9 @@ ul{
     .content {
       display:flex;
       flex-direction:column;
+      --ion-grid-padding-sm:100px;
     }
+    
     // ion-col{
     //     size-{xs};
     // }

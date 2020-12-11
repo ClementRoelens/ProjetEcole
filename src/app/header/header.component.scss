@@ -5,6 +5,7 @@ ion-header {
  .clickable {
      cursor:pointer;
  }
+
 ion-img , img{
     max-width:40px;
     max-height:40px;
@@ -29,54 +30,3 @@ div {
 div > * {
     margin:auto 7px auto 7px;
 }
-
-
-// body{
-//     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    
-// }
-// #bg{
-//     background-image: url("../../assets/images/wallpaper cafeteria.jpg");
-//     background-size: cover;
-//     width:100%;
-//     /* TODO enlever cette merde */
-//     height:1024px;
-// }
-// header {
-//     background-color: #324553;
-//     display:flex;
-//     justify-content:space-between;
-//     align-items:center;
-//     padding:10px;
-// }
-
-// #header_partie_droite {
-//     display:flex;
-//     align-items:center;
-// }
-
-// #header_partie_droite > * {
-//     margin-right:7px;
-//     margin-left:7px;
-// }
-
-// .header_button {
-//     background-color: #432928;
-//     color:white;
-//     border:none;
-//     border-radius:5px;
-//     padding:10px;
-//     text-decoration: none;
-// }
-
-// /* a {
-//     cursor:pointer;
-// } */
-
-// #logo_img {
-//     height:50px;
-// }
-
-// #panier_img {
-//     height:40px;
-// }

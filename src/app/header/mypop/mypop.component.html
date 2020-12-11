@@ -1,7 +1,7 @@
-<ion-list>
-  <ion-img src="/assets/images/logoDeco.png" alt="Déconnexion"></ion-img>
-  <ion-button [routerLink]="'/inscription'">S'inscrire</ion-button>
-  <ion-button [routerLink]="'/connexion'">Se connecter</ion-button>
-  <ion-button *ngIf="isConnected" [routerLink]="'/menu_utilisateur'">{{username}}</ion-button>
-  <ion-img src="/assets/images/panier.png" alt="Panier"></ion-img>
+<ion-list color="primary">
+  <ion-item color="primary">Panier</ion-item>
+  <ion-item [routerLink]="'/inscription'" color="primary">S'inscrire</ion-item>
+  <ion-item [routerLink]="'/connexion'" color="primary">Se connecter</ion-item>
+  <ion-item *ngIf="isConnected" [routerLink]="'/menu_utilisateur'" color="primary">{{username}}</ion-item>
+  <ion-item color="primary">Déconnexion</ion-item>
 </ion-list>

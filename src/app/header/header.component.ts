@@ -9,8 +9,9 @@ import { MypopComponent } from './mypop/mypop.component';
 })
 export class HeaderComponent implements OnInit {
   username:string = "Cantinière";
+  // Pour le développement la valeur est en dure
   userImage:string = "/assets/images/clement.jpg";
-  isConnected:boolean = false;
+  isConnected:boolean = true;
   currentPopover;
   
   constructor(public popoverController: PopoverController) { }

@@ -1,7 +1,10 @@
 ion-header {
     background-color:#324553;
-}
+ }
 
+ .clickable {
+     cursor:pointer;
+ }
 ion-img , img{
     max-width:40px;
     max-height:40px;

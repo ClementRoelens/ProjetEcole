@@ -3,15 +3,16 @@
         <ion-row class="ion-justify-content-between">
             <ion-col>
                 <div>
-                    <ion-img src="/assets/images/logoDeco.png" alt="Déconnexion" class="ion-hide-sm-down"></ion-img>
-                    <ion-img src="/assets/images/logo.png" alt="Retour à l'accueil" id="logo"></ion-img>
+                    <ion-img (click)="disconnect()" src="/assets/images/logoDeco.png" alt="Déconnexion" class="ion-hide-sm-down clickable"></ion-img>
+                    <ion-img routerLink="/home" src="/assets/images/logo.png" alt="Retour à l'accueil" id="logo" class="clickable"></ion-img>
                 </div>
             </ion-col>
             <ion-col>
                 <div class="ion-hide-sm-down" width-sm="0">
-                    <ion-button [routerLink]="'/inscription'">S'inscrire</ion-button>
-                    <ion-button [routerLink]="'/connexion'">Se connecter</ion-button>
-                    <ion-img src="/assets/images/panier.png" alt="Panier"></ion-img>
+                    <ion-button *ngIf="!isConnected" routerLink="/inscription">S'inscrire</ion-button>
+                    <ion-button *ngIf="!isConnected" routerLink="/connexion">Se connecter</ion-button>
+                    <ion-button *ngIf="isConnected" routerLink="/infos-user">{{username}}</ion-button>
+                    <ion-img routerLink="/panier" src="/assets/images/panier.png" alt="Panier" class="clickable"></ion-img>
                     <ion-img [src]="userImage" alt="Avatar"></ion-img>
                 </div>
                 <img [src]="userImage" alt="Avatar" class="ion-hide-sm-up">

@@ -1,0 +1,25 @@
+ion-content{
+    --background: #fff url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
+  }
+  
+  ion-row{
+    text-align: center;
+    color: black;
+    background-color: whitesmoke;
+    border: 15px  black;
+    padding: 10px;
+  }
+
+  
+  ion-item#input{
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  
+  p {
+    color: white;
+  }
+  
+  #loupe {
+    width: 20px;
+  }

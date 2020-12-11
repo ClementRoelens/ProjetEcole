@@ -11,6 +11,15 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'gestion-user',
+    loadChildren: () => import('./gestion-user/gestion-user.module').then( m => m.GestionUSerPageModule)
+  },
+  {
+    path: 'gestion-cagnotte',
+    loadChildren: () => import('./gestion-cagnotte/gestion-cagnotte.module').then( m => m.GestionCagnottePageModule)
+  },
+
 ];
 
 @NgModule({

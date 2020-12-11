@@ -1,0 +1,22 @@
+ion-content{
+    --background: #fff url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
+  }
+  
+#btnRetour{
+  width: 50px; 
+  position: relative;
+  right: 43%;
+}
+
+  p{
+    color: white;
+    font-weight: bold;
+  }
+  
+  ion-row{
+    text-align: center;
+    color: black;
+    background-color: whitesmoke;
+    border: 1px  black;
+    padding: 10px;
+  }

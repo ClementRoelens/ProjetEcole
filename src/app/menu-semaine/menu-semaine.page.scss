@@ -1,0 +1,106 @@
+ion-content{
+    --background:url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
+   }
+   ion-card{
+       --background:#fdfdfd;
+   }
+   h1,p{
+    text-decoration: underline;
+    width:100%;
+    margin:auto;
+    text-align: center;
+}
+section{
+    display:flex;
+    width:100%;
+    flex-direction:column;
+    /* justify-content: space-between; */
+}
+article{
+    display:flex;
+    flex-direction: column;
+    /* width:33%; */
+    border-radius: 5px;
+    align-content: space-around;
+    /* position:absolute;
+    top:0px; */
+}
+article:hover{
+    background-color:#32455357;
+    
+}
+ul{
+    list-style-type: disclosure-closed;
+    padding-left:10px;
+
+ 
+}
+.plat{
+    color:white;
+    background-color: #324553;
+    font-size: 1rem;
+    /* width:33%; */
+    border-radius:2px;
+    margin:5px;
+    padding-left:10px;
+    min-height:100px;
+}
+.flex{
+    display:flex;
+}
+.content{
+    /* width:100%; */
+    
+    margin:auto;
+    margin-top:0px !important;
+    /* justify-content: space-between; */
+    
+}
+.bouton{
+    margin:auto;
+    margin-top:0px;
+    width:100px;
+    display:flex;
+    /* max-height: 50px; */
+}
+.btn{
+    text-align:center;
+    margin:auto;
+    display:block;
+    background-color: #324553;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:10px;
+    text-decoration: none;
+    padding-bottom: 20px;
+}
+.btn:hover{
+    background-color: #b6003a;
+}
+#logo_img {
+    height:50px;
+}
+
+#panier_img {
+    height:40px;
+}
+@media screen and (max-width: 640px) {
+    .content {
+      display:flex;
+      flex-direction:column;
+    }
+    // ion-col{
+    //     size-{xs};
+    // }
+    
+    
+        // .card-content{
+        //     --ion-scrollX:true;
+        //     --ion-scrollY:false;
+        //     --ion-fullscreen:true;
+        //     border:10px solid black;
+        // }
+        
+    
+  }

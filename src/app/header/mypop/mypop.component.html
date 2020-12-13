@@ -1,5 +1,5 @@
 <ion-list color="primary">
-  <ion-item (click)="close()" color="primary">Panier</ion-item>
+  <ion-item routerLink="/panier" (click)="close()" color="primary">Panier</ion-item>
   <ion-item routerLink="/inscription" (click)="close()" color="primary">S'inscrire</ion-item>
   <ion-item routerLink="/connexion" (click)="close()" color="primary">Se connecter</ion-item>
   <ion-item *ngIf="isConnected" routerLink="/infos-user" (click)="close()" color="primary">{{username}}</ion-item>

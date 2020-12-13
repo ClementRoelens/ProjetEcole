@@ -43,8 +43,7 @@
             <ion-input type="number" name="phone" disabled>{{user.phone}}</ion-input>
           </ion-item>
         
-          <!-- TODO: implémenter le routerLink quand la page gestion user sera faite-->
-          <ion-button color="primary">Modifier informations</ion-button>
+          <ion-button [routerLink]="'/edit-user/' + user.id" color="primary">Modifier informations</ion-button>
       
         </form>
 

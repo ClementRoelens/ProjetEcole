@@ -8,13 +8,16 @@ import { MenuSemainePageRoutingModule } from './menu-semaine-routing.module';
 
 import { MenuSemainePage } from './menu-semaine.page';
 import { HeaderComponent } from '../header/header.component';
+import { LayoutModule} from '@angular/cdk/layout'
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuSemainePageRoutingModule
+    MenuSemainePageRoutingModule,
+    LayoutModule
   ],
   declarations: [MenuSemainePage, HeaderComponent]
 })

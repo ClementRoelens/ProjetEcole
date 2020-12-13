@@ -23,4 +23,14 @@ export class CantiniereAPIService {
     return this.http.get(BASE_URL + "user/find/" + id, options)
   }
 
+  getMenu(){
+    return this.http.get(BASE_URL + "menu/findallavailablefortoday")
+  }
+  getMenuImg(id:number){
+    return this.http.get(BASE_URL + "menu/findimg/"+id)
+  }
+  getMealImg(id:number){
+    return this.http.get(BASE_URL + "meal/findimg/"+id)
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { CantiniereAPIService } from '../cantiniere-api.service';
 import { User } from '../model/User';
@@ -13,9 +14,9 @@ import { ToastUtils } from '../utils/ToastUtils';
 })
 export class EditUserPage implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private service: CantiniereAPIService, private toastController: ToastController) {}
+  constructor(private formBuilder: FormBuilder, private service: CantiniereAPIService, private toastController: ToastController, private route: ActivatedRoute) {}
 
-  // TODO: implémenter user
+  // TODO: requeter user
   user: User = {id: 101,  
     adress: "Test d'adresse",
     wallet: 999,
@@ -35,6 +36,9 @@ export class EditUserPage implements OnInit {
   isValidateEnabled: boolean = false
 
   ngOnInit() {
+
+    let userId = this.route.snapshot.paramMap.get("id")
+    // TODO: requêter l'user depuis le web service 
 
     this.userForm = this.formBuilder.group({
       email: undefined,

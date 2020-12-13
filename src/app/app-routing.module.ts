@@ -44,7 +44,7 @@ const routes: Routes = [
     loadChildren: () => import('./infos-user/infos-user.module').then( m => m.InfosUserPageModule)
   },
   {
-    path: 'edit-user',
+    path: 'edit-user/:id',
     loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule)
   },
   {

@@ -7,15 +7,15 @@
 
 <ion-content  class="card-content">
   <section id="bg">
-    <div class='flex'>
+    <!-- <div class='flex'>
         <h1>Menu de la Semaine</h1>
-    </div>
+    </div> -->
     <div  class='flex content'>
       <!-- <ion-button (click)="showModal()"></ion-button> -->
       <ion-grid  >
         <ion-row  size-xs >
           <ion-col size-sm size="12"  *ngFor="let menu of weeklyMenu, let i =index" >
-        <article width="100%" >
+        <article >
           <ion-card >
             <ion-card-header>
               
@@ -25,24 +25,28 @@
                 </a>
               </ion-card-title>
               <ion-card-subtitle>
-                <div >{{ menu.priceDF }}</div >
+                <h2 >{{ menu.priceDF }}<strong>€</strong></h2 >
                 
               </ion-card-subtitle>
             </ion-card-header>
           
             <ion-card-content>
-              <ion-img [src]="imageMenu" (click)="showModal()"></ion-img>
+              <ion-img [src]="imageMenu" (click)="showModal(menu,imageMenu)"></ion-img>
               <!-- {{ imageMenu }} -->
               <!-- Keep close to Nature's heart... and break clear away, once in awhile,
               and climb a mountain or spend a week in the woods. Wash your spirit clean. -->
             </ion-card-content>
           
             <ion-card-subtitle><p>Repas</p></ion-card-subtitle>
-            <div (click)="showModal()">
-              <div class='plat'>
-                <ul >
-                  <li *ngFor="let plat of menu.meals; let i=index">{{ plat.label }}</li>
-                </ul>
+            <div (click)="showModal(menu,imageMenu)">
+              <div class='plat' >
+                <!-- <ul >
+                  <li *ngFor="let plat of menu.meals; let i=index" > -->
+                    <div *ngFor="let plat of menu.meals">
+                      <p *ngIf="plat.isAvailable">{{ plat.label }}</p>
+                  <!-- </li> -->
+                <!-- </ul> -->
+                    </div>
               </div>
                 <!-- <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
               <div class='plat'>

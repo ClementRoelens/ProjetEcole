@@ -4,12 +4,12 @@ import { ModalPage } from '../modal/modal.page';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { CantiniereAPIService } from '../cantiniere-api.service';
 
-interface Menu{
-  day:string
-  plat1:string[]
-  plat2:string[]
+// interface Menu{
+//   day:string
+//   plat1:string[]
+//   plat2:string[]
 
-}
+// }
 interface Meals {
   id: number
   description?:string
@@ -19,6 +19,7 @@ interface Meals {
   priceDF: number
   availableForWeeks: number[]
   ingredients:Ingredients[]
+  isAvailable?:boolean
 }
 interface Ingredients{
   id:number
@@ -61,35 +62,35 @@ export class MenuSemainePage implements OnInit {
 weeklyMenu:Menus[] =[]
 weeklyMeals:Meals[]=[]
 vraiMenu:Menus[]
-menus:Menu[]=[
-  {
-    day:"lundi",
-    plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
-    plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
-  },
-  {
-    day:"mardi",
-    plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
-    plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
-  },
-  {
-    day:"mercredi",
-    plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
-    plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
-  },
-  {
-    day:"jeudi",
-    plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
-    plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
-  },
-  {
-    day:"vendredi",
-    plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
-    plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
-  }
-]
+// menus:Menu[]=[
+//   {
+//     day:"lundi",
+//     plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
+//     plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
+//   },
+//   {
+//     day:"mardi",
+//     plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
+//     plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
+//   },
+//   {
+//     day:"mercredi",
+//     plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
+//     plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
+//   },
+//   {
+//     day:"jeudi",
+//     plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
+//     plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
+//   },
+//   {
+//     day:"vendredi",
+//     plat1:["Melon","Sauce bolognaise végétale aux fèves et courgettesBIO","Pommes de terre grenaille","Yaourt nature"],
+//     plat2:["Bruchetta mozzarella","Escalope de poulet Yassa","Semoule BIO","Fruit de saison"]
+//   }
+// ]
 imageMenu:string
-mime:string
+// mime:string
 colSize:number |string
   constructor(public modalCtrl:ModalController,public breakpointObserver:BreakpointObserver,private apiService:CantiniereAPIService ) { }
 nbWeek:any
@@ -113,32 +114,13 @@ nbWeek:any
     console.log(this.showActualWeek().toString())
   }
   showActualWeek(){
+    // return 2
     return moment().week()
   }
   showImage(id:number){
     this.apiService.getMenuImg(id)
     .subscribe((result:Image)=>{
       console.log(result.image64)
-      let b64 = result.image64.split(",")
-      console.log(b64[1])
-      let mime = b64[0]
-      let myFile =  atob(b64[1])
-      // let myFile =atob(result.image64)
-      // console.log(this.imageMenu)
-      // let strFileName = "../../assets/"+result.imagePath
-      // // let strMimeType = 
-      
-
-      // // destination will be created or overwritten by default.
-      // fs.copyFile(myFile, strFileName, (err) => {
-      //   if (err) throw err;
-      //   console.log('File was copied to destination');
-      // });
-      // fs.writeFile(strFileName, myFile, function(err) {
-      //   console.log(err)
-      // })
-      // // download(result.image64, strFileName)
-      // this.imageMenu = mime +","+myFile
       this.imageMenu = result.image64
     })
     
@@ -160,34 +142,24 @@ nbWeek:any
             for(let i=0;i<key.length;i++){
               if(key[i].availableForWeeks.indexOf(this.showActualWeek())!==(-1)){
                 this.weeklyMeals.push(key[i])
+                key[i].isAvailable = true
               }
             }
             console.log("meals: ",this.weeklyMeals)
           }
-          // let alreadyDone = false
-
-          // for(let i=0;i<key.length;i++){
-          //   if(key[i].availableForWeeks.indexOf(this.showActualWeek())!==(-1)){
-              // console.log(caca.meals)
-          //     if(alreadyDone===false){
-          //       this.weeklyMenu.push(menu)
-          //       alreadyDone=true
-          //     }
-          //     this.weeklyMeals.push(key[i])
-          //     console.log("meals: ",key[i])
-
-          //     // console.log("meals: ",this.weeklyMeals)
-          //     console.log("menu: ",this.weeklyMenu)
-          //  }
-          // }
+          
         }
       })
     })
   }
 
-  async showModal(){
+  async showModal(menu, imageMenu){
     const modal = await this.modalCtrl.create({
-      component: ModalPage
+      component: ModalPage,
+      componentProps: {
+        'menu': menu,
+        'image':imageMenu
+      }
     })
     return await modal.present()
   }

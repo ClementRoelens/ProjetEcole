@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-mypop',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MypopComponent implements OnInit {
 
-  constructor() { }
+  @Input("username") username:string;
+  @Input("isConnected") isConnected:boolean;
 
-  ngOnInit() {}
+  constructor(public popover: PopoverController) { }
 
+  ngOnInit() { }
+  
+  close(){
+    this.popover.dismiss();
+  }
+
+  disconnect(){
+    this.isConnected = false;
+    this.close();
+  }
 }

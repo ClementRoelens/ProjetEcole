@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CantiniereAPIService } from '../cantiniere-api.service';
 import { ToastController } from '@ionic/angular'
+import { EmailUtils } from '../utils/EmailUtils';
+import { ToastUtils } from '../utils/ToastUtils';
 
 @Component({
   selector: 'app-reinitialisation-mdp',
@@ -17,45 +19,30 @@ export class ReinitialisationMdpPage implements OnInit {
   ngOnInit() {}
 
   onSend(){
-    if (this.email != "" && this.verifyEmail(this.email)){
+    if (this.email != "" && EmailUtils.verifyEmail(this.email)){
 
       // le mail est valide, envoi de la requete
       this.cantiniereApi.forgotPassword(this.email).subscribe((response) => {
 
         this.email = null
 
-        this.presentToast("Un mail vient de vous être renvoyé", "success")
+        ToastUtils.presentToast("Un mail vient de vous être renvoyé", "success", this.toastController)
 
       }, (error) => {
-        this.presentToast("Une erreur s'est produite : " + error.error.exceptionMessage, "danger")
+        ToastUtils.presentToast("Une erreur s'est produite : " + error.error.exceptionMessage, "danger", this.toastController)
       })
       
     } else {
 
       // fait apparaitre le message d'erreur (via le biding)
       this.isEmailValid = false
-      this.presentToast("Veuillez saisir un mail valide", "danger")
+      ToastUtils.presentToast("Veuillez saisir un mail valide", "danger", this.toastController)
     }
-  }
-
-  // vérifie la validité de l'email via une expression régulière
-  verifyEmail(email: string): boolean {
-    let regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-    return regex.test(email)
   }
 
   // active le button dès que l'user commence à saisir
   change(){
     this.isEmailValid = true
-  }
-
-  async presentToast(message: string, color: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 2000,
-      color: color
-    });
-    toast.present();
   }
 
 }

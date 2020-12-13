@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from './model/User';
 
 const BASE_URL = "http://localhost:8080/lunchtime/"
 
@@ -31,6 +32,13 @@ export class CantiniereAPIService {
   }
   getMealImg(id:number){
     return this.http.get(BASE_URL + "meal/findimg/"+id)
+  }
+  updateUser(user: User, token: string){
+    let options = {
+      headers: {"Authorization": token}
+    }
+
+    return this.http.post(BASE_URL + "user/update/" + user.id, user, {headers: options.headers, observe : "response"})
   }
 
 }

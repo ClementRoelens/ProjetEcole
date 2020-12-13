@@ -1,0 +1,46 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content>
+
+  <h1>Modifier les infos du compte</h1>
+
+  <form [formGroup]="userForm" (ngSubmit)="onValidate()" class="ion-margin-horizontal" *ngIf="user">
+
+    <ion-label class="ion-margin-bottom" color="light">Nom</ion-label>
+    <ion-item class="ion-margin-bottom">
+      <ion-input color="medium" type="text" name="name" readonly>{{user.name}}</ion-input>
+    </ion-item>
+
+    <ion-label color="light">Prénom</ion-label>
+    <ion-item class="ion-margin-bottom">
+      <ion-input color="medium" type="text" name="firstname" readonly>{{user.firstname}}</ion-input>
+    </ion-item>
+
+    <ion-label color="light">Email</ion-label>
+    <ion-item class="ion-margin-bottom">
+      <ion-input type="email" autocomplete="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-label color="light">Vérifier email</ion-label>
+    <ion-item class="ion-margin-bottom">
+      <ion-input type="email" autocomplete="off" formControlName="verifyEmail"></ion-input>
+    </ion-item>
+
+    <ion-label color="light">Adresse</ion-label>
+    <ion-item class="ion-margin-bottom">
+      <ion-input type="text" formControlName="adress"></ion-input>
+    </ion-item>
+
+    <ion-label color="light">Tél.</ion-label>
+    <ion-item class="ion-margin-bottom">
+      <ion-input type="number" formControlName="phone"></ion-input>
+    </ion-item>
+    
+    <div class="ion-text-center">
+      <ion-button [disabled]="!this.isValidateEnabled" type="submit" class="ion-margin-bottom" color="primary">Valider</ion-button>
+    </div>
+  </form>
+
+</ion-content>

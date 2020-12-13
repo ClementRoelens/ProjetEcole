@@ -42,7 +42,20 @@ const routes: Routes = [
   {
     path: 'infos-user',
     loadChildren: () => import('./infos-user/infos-user.module').then( m => m.InfosUserPageModule)
+  },
+  {
+    path: 'edit-user',
+    loadChildren: () => import('./edit-user/edit-user.module').then( m => m.EditUserPageModule)
+  },
+  {
+    path: 'authentification',
+    loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
+  },
+  {
+    path: 'inscription',
+    loadChildren: () => import('./inscription/inscription.module').then( m => m.InscriptionPageModule)
   }
+
 ];
 
 @NgModule({

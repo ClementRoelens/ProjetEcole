@@ -1,0 +1,29 @@
+ion-content{
+    --background:url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
+}
+ion-col{
+    color: white;
+}
+
+ion-grid#articles {
+    border: 1px solid black;
+    padding: 0px;
+}
+
+ion-row#titles{
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.322);
+}
+
+ion-row.contents{
+    background-color: rgba(0, 0, 0, 0.089);
+}
+
+ion-label#total{
+    font-size: 20px;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}

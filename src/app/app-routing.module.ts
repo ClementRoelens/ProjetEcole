@@ -54,6 +54,10 @@ const routes: Routes = [
   {
     path: 'inscription',
     loadChildren: () => import('./inscription/inscription.module').then( m => m.InscriptionPageModule)
+  },
+  {
+    path: 'panier',
+    loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
   }
 
 ];

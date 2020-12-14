@@ -1,0 +1,36 @@
+ion-content {
+    --background: url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
+}
+
+  #content  {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    height:100%;
+  }
+
+h1{
+    color:white;
+    font-size:60px;
+    text-align:center;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+ion-input {
+  border:solid 1px black;
+  border-radius:5px;
+  background-color: white;
+  margin:10px auto 10px auto;
+  width:300px;
+}
+
+ion-button{
+  position:relative;
+  margin:auto;
+  margin-top:30px;
+  display:block;
+  text-transform: none;
+  width:110px;
+}
+

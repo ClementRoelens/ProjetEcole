@@ -32,4 +32,8 @@ export class CantiniereAPIService {
     return this.http.post(BASE_URL + "user/update/" + user.id, user, {headers: options.headers, observe : "response"})
   }
 
+  register(user:User){
+    return this.http.put(BASE_URL+"user/register",user);
+  }
+
 }

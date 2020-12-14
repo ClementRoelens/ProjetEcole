@@ -1,9 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>inscription</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
+
 
 <ion-content>
-
+  <div id="content">
+    <div>
+      <h1>
+        Inscription
+      </h1>
+      <ion-input type="text" placeholder="Nom" >
+      </ion-input>
+      <ion-input type="text" placeholder="Prénom" >
+      </ion-input>
+      <ion-input type="text" placeholder="E-mail">
+      </ion-input>
+      <ion-input type="password" placeholder="Mot de passe">
+      </ion-input>
+      <ion-input type="password" placeholder="Confirmation mot de passe">
+      </ion-input>
+      <ion-button (click)="register()" size="large">
+        Valider
+      </ion-button>
+    </div>
+  </div>
+  
 </ion-content>

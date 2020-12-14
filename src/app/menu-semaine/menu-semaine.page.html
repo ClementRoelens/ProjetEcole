@@ -13,9 +13,9 @@
     <div  class='flex content'>
       <!-- <ion-button (click)="showModal()"></ion-button> -->
       <ion-grid  >
-        <ion-row  size-xs >
+        <ion-row  size="2" >
           <ion-col size-sm size="12"  *ngFor="let menu of weeklyMenu, let i =index" >
-        <article >
+        <article [ngStyle]="{'width':colSize}">
           <ion-card >
             <ion-card-header>
               
@@ -42,11 +42,11 @@
               <div class='plat' >
                 <!-- <ul >
                   <li *ngFor="let plat of menu.meals; let i=index" > -->
-                    <div *ngFor="let plat of menu.meals">
+                    <span  *ngFor="let plat of menu.meals">
                       <p *ngIf="plat.isAvailable">{{ plat.label }}</p>
                   <!-- </li> -->
                 <!-- </ul> -->
-                    </div>
+                    </span>
               </div>
                 <!-- <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
               <div class='plat'>

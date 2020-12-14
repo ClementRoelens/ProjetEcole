@@ -45,7 +45,7 @@ interface Image{
   imagePath:string
   image64:string
 }
-const fs = require("fs")
+// const fs = require("fs")
 // const download = require("downloadjs")
 const moment = require('moment')
 const LOW_SCREEN= '(max-width:767px)'
@@ -91,27 +91,36 @@ vraiMenu:Menus[]
 // ]
 imageMenu:string
 // mime:string
-colSize:number |string
+colSize:string
   constructor(public modalCtrl:ModalController,public breakpointObserver:BreakpointObserver,private apiService:CantiniereAPIService ) { }
 nbWeek:any
   ngOnInit() {
+    
+    this.switchScreen()
+    console.log(this.showMenu())
+    console.log(this.showActualWeek().toString())
+  }
+
+  switchScreen(){
     this.breakpointObserver.observe([
       LOW_SCREEN,
       HIGH_SCREEN
     ]).subscribe((size :BreakpointState)=>{
         Object.entries(size.breakpoints).map(([key,val])=>{
-        console.log(key,val)
-        if(key==LOW_SCREEN && val==true){
-          this.colSize = "100% !important"
-        }else{
-          this.colSize = "25% !important"
+        if(key===LOW_SCREEN && val===true){
+          this.colSize = "320px"
         }
+        if(key===HIGH_SCREEN && val===true){
+          this.colSize = "250px"
+        }
+        
+        // console.log("screen: "+key,"bool: "+val)
+        // console.log(this.colSize)
+
         // val?this.showMenu(key):null
       })
     })
 
-    console.log(this.showMenu())
-    console.log(this.showActualWeek().toString())
   }
   showActualWeek(){
     // return 2
@@ -120,7 +129,7 @@ nbWeek:any
   showImage(id:number){
     this.apiService.getMenuImg(id)
     .subscribe((result:Image)=>{
-      console.log(result.image64)
+      // console.log(result.image64)
       this.imageMenu = result.image64
     })
     
@@ -163,5 +172,4 @@ nbWeek:any
     })
     return await modal.present()
   }
-  
 }

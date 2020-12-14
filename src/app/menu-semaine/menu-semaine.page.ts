@@ -81,10 +81,9 @@ nbWeek:any
 //permet le partage des images avec les autres dev
   DEV_shareMenuImg(id:number,body:Image){
     this.apiService.updateMenuImage(id,body).subscribe((result:Menus)=>{
-        console.log(result)
+        console.log("image "+result.id+" updated")
     })
   }
-
 
   switchScreen(){
     this.breakpointObserver.observe([
@@ -98,27 +97,20 @@ nbWeek:any
         if(key===HIGH_SCREEN && val===true){
           this.colSize = "250px"
         }
-        
-        // console.log("screen: "+key,"bool: "+val)
-        // console.log(this.colSize)
-
-        // val?this.showMenu(key):null
       })
     })
 
   }
   showActualWeek(){
-    // return 2
+    // return 50
     return moment().week()
   }
   showImage(id:number){
     this.apiService.getMenuImg(id)
     .subscribe((result:Image)=>{
-      console.log(result.image64)
+      // console.log(result.image64)
       this.imageMenu = result.image64
     })
-    
-
   }
   showMenu(){
     this.apiService.getMenu()
@@ -126,9 +118,6 @@ nbWeek:any
       result.map((menu:Menus)=>{
         if(menu.meals){
           let [...key]  = menu.meals
-          // console.log("caca : ", menu)
-          // console.log("key,value: ",...key)
-          // console.log(key.length)
           if(menu.availableForWeeks.indexOf(this.showActualWeek())!==(-1)){
             this.weeklyMenu.push(menu)
             this.showImage(4)
@@ -141,7 +130,6 @@ nbWeek:any
             }
             console.log("meals: ",this.weeklyMeals)
           }
-          
         }
       })
     })

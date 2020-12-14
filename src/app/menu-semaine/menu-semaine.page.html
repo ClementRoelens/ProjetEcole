@@ -14,7 +14,7 @@
       <!-- <ion-button (click)="showModal()"></ion-button> -->
       <ion-grid  >
         <ion-row  size="2" >
-          <ion-col size-sm size="12"  *ngFor="let menu of weeklyMenu, let i =index" >
+          <ion-col size-sm size="12"  *ngFor="let menu of weeklyMenu" >
         <article [ngStyle]="{'width':colSize}">
           <ion-card >
             <ion-card-header>
@@ -31,7 +31,7 @@
             </ion-card-header>
           
             <ion-card-content>
-              <ion-img [src]="imageMenu" (click)="showModal(menu,imageMenu)"></ion-img>
+              <ion-img [src]="imageMenu" (click)="showModal(menu,imageMenu,propsForModal)"></ion-img>
               <!-- {{ imageMenu }} -->
               <!-- Keep close to Nature's heart... and break clear away, once in awhile,
               and climb a mountain or spend a week in the woods. Wash your spirit clean. -->
@@ -42,7 +42,7 @@
               <div class='plat' >
                 <!-- <ul >
                   <li *ngFor="let plat of menu.meals; let i=index" > -->
-                    <span  *ngFor="let plat of menu.meals">
+                    <span #propsForModal  *ngFor="let plat of menu.meals">
                       <p *ngIf="plat.isAvailable">{{ plat.label }}</p>
                   <!-- </li> -->
                 <!-- </ul> -->

@@ -33,6 +33,9 @@ export class CantiniereAPIService {
   getMealImg(id:number){
     return this.http.get(BASE_URL + "meal/findimg/"+id)
   }
+  updateMenuImage(id:number,body){
+    return this.http.patch(BASE_URL + "menu/updateimg/"+id,body)
+  }
   updateUser(user: User, token: string){
     let options = {
       headers: {"Authorization": token}

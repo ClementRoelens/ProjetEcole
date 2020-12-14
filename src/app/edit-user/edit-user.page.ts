@@ -41,10 +41,10 @@ export class EditUserPage implements OnInit {
     // TODO: requêter l'user depuis le web service 
 
     this.userForm = this.formBuilder.group({
-      email: undefined,
-      verifyEmail: undefined,
-      adress: undefined,
-      phone: undefined
+      email: this.user.email,
+      verifyEmail: this.user.email,
+      adress: this.user.adress,
+      phone: this.user.phone
     })
 
     this.userForm.valueChanges.subscribe(values => {

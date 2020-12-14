@@ -38,7 +38,7 @@ export class EditUserPage implements OnInit {
   ngOnInit() {
 
     let userId = this.route.snapshot.paramMap.get("id")
-    // TODO: requêter l'user depuis le web service 
+    // TODO: requêter l'user depuis le web service avec l'id et le token
 
     this.userForm = this.formBuilder.group({
       email: this.user.email,
@@ -61,12 +61,18 @@ export class EditUserPage implements OnInit {
 
     if(values.email.toLowerCase() == values.verifyEmail.toLowerCase()){
       if(EmailUtils.verifyEmail(values.email)){
-
+        
         this.user.email = values.email.toLowerCase()
         this.user.adress = values.adress
         this.user.phone = values.phone
+        
+        /*
+        this.service.updateUser(this.user, "TOKEN").subscribe((response) => {
 
-        //this.service.updateUser(this.user, "TOKEN...")
+        }, (error) => {
+
+        })
+        */
 
       } else {
         ToastUtils.presentToast("Veuillez saisir un email valide", "danger", this.toastController)

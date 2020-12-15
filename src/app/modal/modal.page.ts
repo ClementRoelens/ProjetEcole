@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CantiniereAPIService } from '../cantiniere-api.service';
 
@@ -16,12 +16,14 @@ interface Image{
 })
 export class ModalPage implements OnInit {
 
-  @Input()menu
-  @Input()image
+  @Input()meal:ElementRef
+  // @Input()image
+  // @Input()src:string
   // image:string
   constructor(public modalCtrl: ModalController, public apiService:CantiniereAPIService) { }
 
   ngOnInit() {
+    console.log(this.meal)
   }
   dismiss(){
     this.modalCtrl.dismiss()

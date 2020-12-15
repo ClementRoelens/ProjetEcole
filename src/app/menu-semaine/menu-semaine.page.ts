@@ -1,18 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { CantiniereAPIService } from '../cantiniere-api.service';
 
-// interface Menu{
-//   day:string
-//   plat1:string[]
-//   plat2:string[]
-
-// }
 interface Meals {
   id: number
   description?:string
+  src?:string
   label: string
   status: number
   imageId: number
@@ -45,6 +40,7 @@ interface Image{
 }
 // const fs = require("fs")
 // const download = require("downloadjs")
+const URL ="http://localhost:8100/lunchtime/" 
 const moment = require('moment')
 const LOW_SCREEN= '(max-width:767px)'
 const HIGH_SCREEN = '(min-width:768px)'
@@ -58,33 +54,52 @@ const DEV_IMAGEBODY:Image={
   templateUrl: './menu-semaine.page.html',
   styleUrls: ['./menu-semaine.page.scss'],
 })
-export class MenuSemainePage implements OnInit {
+export class MenuSemainePage implements OnInit,AfterViewInit {
 
 weeklyMenu:Menus[] =[]
 weeklyMeals:Meals[]=[]
 vraiMenu:Menus[]
-
-
 imageMenu:string
-// mime:string
+imageMeal:string
 colSize:string
-  constructor(public modalCtrl:ModalController,public breakpointObserver:BreakpointObserver,private apiService:CantiniereAPIService ) { }
-nbWeek:any
+initMeal:Meals={
+  id:null,
+  src:null,
+  label: "menu",
+  status: null,
+  imageId: null,
+  priceDF: null,
+  availableForWeeks:[],
+  ingredients:[]
+}
+@ViewChild('modalSrc')modalSrc:ElementRef
+
+  constructor(public modalCtrl:ModalController,public breakpointObserver:BreakpointObserver,private apiService:CantiniereAPIService ) { 
+    this.showMealImage.bind(this)
+  }
+// nbWeek:any
   ngOnInit() {
-    
     this.switchScreen()
     // console.log(this.showMenu())
-    this.showMenu()
+    // this.showMenu()
     // console.log(this.showActualWeek().toString())
     this.DEV_shareMenuImg(4,DEV_IMAGEBODY)
+    this.showMenuImage(4)
+    // console.log("imageMenu: "+this.imageMenu)
+    
+  }
+  ngAfterViewInit(){
+    this.showMeal()
+    // Object.defineProperty(this.weeklyMeals[0], 'src',{value:this.imageMenu,writable: false})
   }
 //permet le partage des images avec les autres dev
-  DEV_shareMenuImg(id:number,body:Image){
+//envoyer juste le body (voir interface Image)
+  DEV_shareMenuImg(id:number=4,body:Image){
     this.apiService.updateMenuImage(id,body).subscribe((result:Menus)=>{
         console.log("image "+result.id+" updated")
     })
   }
-
+  
   switchScreen(){
     this.breakpointObserver.observe([
       LOW_SCREEN,
@@ -99,48 +114,86 @@ nbWeek:any
         }
       })
     })
-
   }
+
   showActualWeek(){
     // return 50
     return moment().week()
   }
-  showImage(id:number){
+
+  showMenuImage(id:number){
     this.apiService.getMenuImg(id)
     .subscribe((result:Image)=>{
       // console.log(result.image64)
       this.imageMenu = result.image64
-    })
-  }
-  showMenu(){
-    this.apiService.getMenu()
-    .subscribe((result:Menus[])=>{
-      result.map((menu:Menus)=>{
-        if(menu.meals){
-          let [...key]  = menu.meals
-          if(menu.availableForWeeks.indexOf(this.showActualWeek())!==(-1)){
-            this.weeklyMenu.push(menu)
-            this.showImage(4)
-            console.log(this.weeklyMenu)
-            for(let i=0;i<key.length;i++){
-              if(key[i].availableForWeeks.indexOf(this.showActualWeek())!==(-1)){
-                this.weeklyMeals.push(key[i])
-                key[i].isAvailable = true
-              }
-            }
-            console.log("meals: ",this.weeklyMeals)
-          }
-        }
-      })
+      console.log("imageMenu: "+this.imageMenu)
+      Object.defineProperty(this.initMeal, 'src',{value:this.imageMenu,writable: true})
+      this.weeklyMeals.push(this.initMeal)
+
     })
   }
 
-  async showModal(menu, imageMenu){
+  showMealImage(id:number){
+    this.apiService.getMealImg(id)
+    .subscribe((result:Image)=>{
+      // console.log(result.image64)
+      return result.imagePath
+    })
+  }
+  showMeal(){
+    this.apiService.getMeal()
+    .subscribe((result:Meals[])=>{
+      result.map((meal:Meals)=>{
+
+        this.apiService.getMealImg(meal.id)
+        .subscribe((result2:Image)=>{
+          // console.log(result.image64)
+          // return result2.imagePath
+          let url =result2.image64
+          // url = url.replace(/ /g,'%20')
+          Object.defineProperty(meal, 'src',{value:url,writable: false})
+        })
+        // this.showMealImage.bind(MenuSemainePage)
+        // let m= globalThis.showMealImage(meal.id)
+        // console.log(m)
+        // Object.defineProperty(meal, 'src',{value:m,writable: true})
+        this.weeklyMeals.push(meal)
+        console.log(meal)
+        
+      })
+       
+      // this.showMealImage()
+      
+    })
+  }
+  // showMenu(){
+  //   this.apiService.getMenu()
+  //   .subscribe((result:Menus[])=>{
+  //     result.map((menu:Menus)=>{
+  //       if(menu.meals){
+  //         let [...key]  = menu.meals
+  //         if(menu.availableForWeeks.indexOf(this.showActualWeek())!==(-1)){
+  //           this.weeklyMenu.push(menu)
+  //           this.showMenuImage(4)
+  //           console.log(this.weeklyMenu)
+  //           for(let i=0;i<key.length;i++){
+  //             if(key[i].availableForWeeks.indexOf(this.showActualWeek())!==(-1)){
+  //               this.weeklyMeals.push(key[i])
+  //               key[i].isAvailable = true
+  //             }
+  //           }
+  //           console.log("meals: ",this.weeklyMeals)
+  //         }
+  //       }
+  //     })
+  //   })
+  // }
+
+  async showModal(meal:ElementRef){
     const modal = await this.modalCtrl.create({
       component: ModalPage,
       componentProps: {
-        'menu': menu,
-        'image':imageMenu
+        'meal': meal
       }
     })
     return await modal.present()

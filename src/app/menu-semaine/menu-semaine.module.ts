@@ -10,6 +10,7 @@ import { MenuSemainePage } from './menu-semaine.page';
 import { HeaderComponent } from '../header/header.component';
 import { LayoutModule} from '@angular/cdk/layout';
 import { DashboardDirective } from './dashboard.directive'
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -20,6 +21,6 @@ import { DashboardDirective } from './dashboard.directive'
     MenuSemainePageRoutingModule,
     LayoutModule
   ],
-  declarations: [MenuSemainePage, HeaderComponent, DashboardDirective]
+  declarations: [MenuSemainePage, HeaderComponent, DashboardDirective,DashboardComponent]
 })
 export class MenuSemainePageModule {}

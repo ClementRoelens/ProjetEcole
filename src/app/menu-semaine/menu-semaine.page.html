@@ -14,8 +14,9 @@
       <!-- <ion-button (click)="showModal()"></ion-button> -->
       <ion-grid  >
         <ion-row  size="2" >
-          <ion-col #el [dashboard]="i"    size-sm size="12"  *ngFor="let wikiMeal of weeklyMeals; let i =index" >
-        <article [ngStyle]="{'width':colSize}">
+          <ion-col  [dashboard]="i"    size-sm size="12"  *ngFor="let wikiMeal of weeklyMeals; let i =index" >
+            <app-dashboard *ngIf="i===0"></app-dashboard>
+            <article *ngIf="i!==0" [ngStyle]="{'width':colSize}">
           <ion-card >
             <ion-card-header>
               <ion-img   [src]="wikiMeal.src" (click)="showModal(wikiMeal)"></ion-img>

@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { CantiniereAPIService } from '../cantiniere-api.service';
+import  moment from 'moment';
 
 interface Meals {
   id: number
@@ -41,7 +42,7 @@ interface Image{
 // const fs = require("fs")
 // const download = require("downloadjs")
 const URL ="http://localhost:8100/lunchtime/" 
-const moment = require('moment')
+// const moment = require('moment')
 const LOW_SCREEN= '(max-width:767px)'
 const HIGH_SCREEN = '(min-width:768px)'
 const DEV_IMAGEBODY:Image={
@@ -72,12 +73,13 @@ initMeal:Meals={
   availableForWeeks:[],
   ingredients:[]
 }
-@ViewChild('modalSrc')modalSrc:ElementRef
+dashboard
+@ViewChild('el')el
 
-  constructor(public modalCtrl:ModalController,public breakpointObserver:BreakpointObserver,private apiService:CantiniereAPIService ) { 
+  constructor(public modalCtrl:ModalController,public breakpointObserver:BreakpointObserver,private apiService:CantiniereAPIService, private renderer:Renderer2 ) { 
     this.showMealImage.bind(this)
   }
-// nbWeek:any
+
   ngOnInit() {
     this.switchScreen()
     // console.log(this.showMenu())
@@ -86,15 +88,20 @@ initMeal:Meals={
     this.DEV_shareMenuImg(4,DEV_IMAGEBODY)
     this.showMenuImage(4)
     // console.log("imageMenu: "+this.imageMenu)
-    
+    // console.log(this.element)
+    // this.tableau.push(this.el)
   }
+
   ngAfterViewInit(){
-    this.showMeal()
+    this.showMeal(this.showActualWeek())
     // Object.defineProperty(this.weeklyMeals[0], 'src',{value:this.imageMenu,writable: false})
+    // console.log("this element: ",this.dashboard)
+  
   }
+
 //permet le partage des images avec les autres dev
 //envoyer juste le body (voir interface Image)
-  DEV_shareMenuImg(id:number=4,body:Image){
+  DEV_shareMenuImg(id:number= 4,body:Image){
     this.apiService.updateMenuImage(id,body).subscribe((result:Menus)=>{
         console.log("image "+result.id+" updated")
     })
@@ -116,7 +123,7 @@ initMeal:Meals={
     })
   }
 
-  showActualWeek(){
+  showActualWeek():number{
     // return 50
     return moment().week()
   }
@@ -126,7 +133,7 @@ initMeal:Meals={
     .subscribe((result:Image)=>{
       // console.log(result.image64)
       this.imageMenu = result.image64
-      console.log("imageMenu: "+this.imageMenu)
+      // console.log("imageMenu: "+this.imageMenu)
       Object.defineProperty(this.initMeal, 'src',{value:this.imageMenu,writable: true})
       this.weeklyMeals.push(this.initMeal)
 
@@ -140,8 +147,8 @@ initMeal:Meals={
       return result.imagePath
     })
   }
-  showMeal(){
-    this.apiService.getMeal()
+  showMeal(week:number){
+    this.apiService.getMeal(week)
     .subscribe((result:Meals[])=>{
       result.map((meal:Meals)=>{
 
@@ -158,7 +165,7 @@ initMeal:Meals={
         // console.log(m)
         // Object.defineProperty(meal, 'src',{value:m,writable: true})
         this.weeklyMeals.push(meal)
-        console.log(meal)
+        // console.log(meal)
         
       })
        

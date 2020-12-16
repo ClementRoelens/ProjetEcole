@@ -14,11 +14,11 @@
       <!-- <ion-button (click)="showModal()"></ion-button> -->
       <ion-grid  >
         <ion-row  size="2" >
-          <ion-col size-sm size="12"  *ngFor="let wikiMeal of weeklyMeals" >
+          <ion-col #el [dashboard]="i"    size-sm size="12"  *ngFor="let wikiMeal of weeklyMeals; let i =index" >
         <article [ngStyle]="{'width':colSize}">
           <ion-card >
             <ion-card-header>
-              <ion-img #modalSrc [src]="wikiMeal.src" (click)="showModal(wikiMeal)"></ion-img>
+              <ion-img   [src]="wikiMeal.src" (click)="showModal(wikiMeal)"></ion-img>
 
               <ion-card-title>
                 <a (click)="showModal(wikiMeal)" class='btn style_button' >

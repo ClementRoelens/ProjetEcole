@@ -27,8 +27,8 @@ export class CantiniereAPIService {
   getMenu(){
     return this.http.get(BASE_URL + "menu/findallavailablefortoday")
   }
-  getMeal(){
-    return this.http.get(BASE_URL + "meal/findallavailablefortoday")
+  getMeal(week:number){
+    return this.http.get(BASE_URL + "meal/findallavailableforweek/"+week)
   }
   getMenuImg(id:number){
     return this.http.get(BASE_URL + "menu/findimg/"+id)

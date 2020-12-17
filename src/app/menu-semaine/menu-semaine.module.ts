@@ -12,7 +12,6 @@ import { LayoutModule} from '@angular/cdk/layout';
 import { DashboardDirective } from './dashboard.directive'
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     IonicModule,
     MenuSemainePageRoutingModule,
     LayoutModule
-  ],
-  declarations: [MenuSemainePage, HeaderComponent, DashboardDirective,DashboardComponent]
+    ],
+  declarations: [MenuSemainePage, HeaderComponent, DashboardDirective,DashboardComponent],
+  providers:[]
 })
 export class MenuSemainePageModule {}

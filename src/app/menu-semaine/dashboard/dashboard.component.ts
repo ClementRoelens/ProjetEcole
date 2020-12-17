@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+@Input('week')week:number
+@Output() WeekChange = new EventEmitter<any>()
 
-  ngOnInit() {}
+  constructor() {
+   }
 
+  ngOnInit() {
+    
+  }
+  nextWeek(){
+    this.week +=1
+    console.log( (this.week))
+   this.WeekChange.emit(this.week)
+  }
 }

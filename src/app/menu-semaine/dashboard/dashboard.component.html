@@ -1,5 +1,5 @@
-<article [ngStyle]="{'width':colSize}">
-  <div class="flex">
+<article (click)="nextWeek()" [ngStyle]="{'width':colSize}">
+  <!-- <div class="flex">
         <div><a class="btn style_button"> lundi</a>
         <p>0€</p></div>
         <div><a class="btn style_button"> mardi</a>
@@ -10,7 +10,8 @@
           <p>0€</p></div>
         <div><a class="btn style_button"> vendredi</a>
           <p>0€</p></div>
-    </div>
+    </div> -->
+    
   <ion-card >
     <ion-card-header>
       <!-- <ion-img   [src]="wikiMeal.src" (click)="showModal(wikiMeal)"></ion-img> -->
@@ -27,13 +28,16 @@
     </ion-card-header>
   
     <ion-card-content>
-      
-      <!-- {{ imageMenu }} -->
+      <ion-item>
+        <ion-icon name="chevron-back-circle"></ion-icon><ion-label class="ion-text-wrap"
+         position="fixed">Semaine {{ week }}</ion-label><ion-icon  name="chevron-forward-circle"></ion-icon>
+        <!-- <ion-datetime month-names="janvier" displayFormat="MMM DD, YYYY"></ion-datetime> -->
+      </ion-item>      <!-- {{ imageMenu }} -->
       <!-- Keep close to Nature's heart... and break clear away, once in awhile,
       and climb a mountain or spend a week in the woods. Wash your spirit clean. -->
     </ion-card-content>
   
-    <ion-card-subtitle ><a routerLink="/carte"><p>Total</p></a></ion-card-subtitle>
+    <!-- <ion-card-subtitle ><p><ion-label>Total</ion-label></p></ion-card-subtitle> -->
     <div (click)="showModal(wikiMeal)">
       <div class='plat' >
         <!-- <ul >

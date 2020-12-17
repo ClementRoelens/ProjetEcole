@@ -125,9 +125,12 @@ dashboard
 
   showActualWeek():number{
     // return 50
-    return moment().week()
+    return moment().isoWeek()
   }
-
+  updateChange(){
+    console.log("caca")
+    // return this.showMeal(event)
+  }
   showMenuImage(id:number){
     this.apiService.getMenuImg(id)
     .subscribe((result:Image)=>{
@@ -136,7 +139,6 @@ dashboard
       // console.log("imageMenu: "+this.imageMenu)
       Object.defineProperty(this.initMeal, 'src',{value:this.imageMenu,writable: true})
       this.weeklyMeals.push(this.initMeal)
-
     })
   }
 

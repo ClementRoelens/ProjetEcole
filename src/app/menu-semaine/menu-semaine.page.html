@@ -15,7 +15,7 @@
       <ion-grid  >
         <ion-row  size="2" >
           <ion-col  [dashboard]="i"    size-sm size="12"  *ngFor="let wikiMeal of weeklyMeals; let i =index" >
-            <app-dashboard *ngIf="i===0"></app-dashboard>
+            <app-dashboard (weekChange)="updateChange($event)" [week]="showActualWeek()" *ngIf="i===0"></app-dashboard>
             <article *ngIf="i!==0" [ngStyle]="{'width':colSize}">
           <ion-card >
             <ion-card-header>

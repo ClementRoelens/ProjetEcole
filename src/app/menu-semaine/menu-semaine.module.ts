@@ -11,6 +11,7 @@ import { HeaderComponent } from '../header/header.component';
 import { LayoutModule} from '@angular/cdk/layout';
 import { DashboardDirective } from './dashboard.directive'
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { WeekCountComponent } from './week-count/week-count.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MenuSemainePageRoutingModule,
     LayoutModule
     ],
-  declarations: [MenuSemainePage, HeaderComponent, DashboardDirective,DashboardComponent],
+  declarations: [MenuSemainePage, HeaderComponent, DashboardDirective,DashboardComponent,WeekCountComponent],
   providers:[]
 })
 export class MenuSemainePageModule {}

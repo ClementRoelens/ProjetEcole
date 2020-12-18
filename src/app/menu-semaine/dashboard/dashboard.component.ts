@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
 @Input('week')week:number
-@Output() WeekChange = new EventEmitter<any>()
+@Output() WeekChange = new EventEmitter()
 
   constructor() {
    }
@@ -16,9 +16,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     
   }
-  nextWeek(){
-    this.week +=1
-    console.log( (this.week))
-   this.WeekChange.emit(this.week)
+  // sayCoucou(e){
+  //   console.log(e)
+  // }
+  nextWeek(e:number){
+  // let incrementWeek =  this.week +=1
+    console.log("suis-je un nombre: ", e)
+    this.week=e
+   this.WeekChange.emit(e)
   }
 }

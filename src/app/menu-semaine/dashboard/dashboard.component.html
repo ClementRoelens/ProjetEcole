@@ -1,4 +1,4 @@
-<article (click)="nextWeek()" [ngStyle]="{'width':colSize}">
+<article  [ngStyle]="{'width':colSize}">
   <!-- <div class="flex">
         <div><a class="btn style_button"> lundi</a>
         <p>0€</p></div>
@@ -11,7 +11,7 @@
         <div><a class="btn style_button"> vendredi</a>
           <p>0€</p></div>
     </div> -->
-    
+    <!-- <app-test (eventcoucou)="sayCoucou($event)"></app-test> -->
   <ion-card >
     <ion-card-header>
       <!-- <ion-img   [src]="wikiMeal.src" (click)="showModal(wikiMeal)"></ion-img> -->
@@ -29,8 +29,7 @@
   
     <ion-card-content>
       <ion-item>
-        <ion-icon name="chevron-back-circle"></ion-icon><ion-label class="ion-text-wrap"
-         position="fixed">Semaine {{ week }}</ion-label><ion-icon  name="chevron-forward-circle"></ion-icon>
+        <app-week-count [week]="week" (eventIncrement)="nextWeek($event)" (eventDecrement)="nextWeek($event)"></app-week-count>
         <!-- <ion-datetime month-names="janvier" displayFormat="MMM DD, YYYY"></ion-datetime> -->
       </ion-item>      <!-- {{ imageMenu }} -->
       <!-- Keep close to Nature's heart... and break clear away, once in awhile,
@@ -38,7 +37,7 @@
     </ion-card-content>
   
     <!-- <ion-card-subtitle ><p><ion-label>Total</ion-label></p></ion-card-subtitle> -->
-    <div (click)="showModal(wikiMeal)">
+    <div >
       <div class='plat' >
         <!-- <ul >
           <li *ngFor="let plat of menu.meals; let i=index" > -->

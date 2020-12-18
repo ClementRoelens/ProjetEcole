@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
@@ -55,7 +55,7 @@ const DEV_IMAGEBODY:Image={
   templateUrl: './menu-semaine.page.html',
   styleUrls: ['./menu-semaine.page.scss'],
 })
-export class MenuSemainePage implements OnInit,AfterViewInit {
+export class MenuSemainePage implements OnInit,AfterViewInit,OnChanges {
 
 weeklyMenu:Menus[] =[]
 weeklyMeals:Meals[]=[]
@@ -98,7 +98,13 @@ dashboard
     // console.log("this element: ",this.dashboard)
   
   }
-
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    console.log("caca")
+  }
+trackByFn(index, item){
+  return index
+}
 //permet le partage des images avec les autres dev
 //envoyer juste le body (voir interface Image)
   DEV_shareMenuImg(id:number= 4,body:Image){
@@ -127,10 +133,14 @@ dashboard
     // return 50
     return moment().isoWeek()
   }
-  updateChange(){
+  updateChangedWeek(event:number){
     console.log("caca")
+    console.log("ca marche! :",event)
     // return this.showMeal(event)
   }
+  // sayCoucou(e){
+  //   console.log(e)
+  // }
   showMenuImage(id:number){
     this.apiService.getMenuImg(id)
     .subscribe((result:Image)=>{
@@ -150,6 +160,8 @@ dashboard
     })
   }
   showMeal(week:number){
+    // if(week>52) week=1
+    this.weeklyMeals.length=1
     this.apiService.getMeal(week)
     .subscribe((result:Meals[])=>{
       result.map((meal:Meals)=>{

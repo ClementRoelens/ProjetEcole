@@ -160,8 +160,7 @@ trackByFn(index, item){
     })
   }
   showMeal(week:number){
-    // if(week>52) week=1
-    this.weeklyMeals.length=1
+    if(this.weeklyMeals.length!==0) this.weeklyMeals.length=1
     this.apiService.getMeal(week)
     .subscribe((result:Meals[])=>{
       result.map((meal:Meals)=>{

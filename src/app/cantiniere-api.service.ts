@@ -36,4 +36,12 @@ export class CantiniereAPIService {
     return this.http.put(BASE_URL+"user/register",user);
   }
 
+  authentification(emailP:string,passwordP:string){
+    let credentials = {
+      email:emailP,
+      password:passwordP
+    };
+    return this.http.post(BASE_URL+"login",credentials,{observe:"response"});
+  }
+
 }

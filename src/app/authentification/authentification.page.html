@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<ion-content>
+    <div>
+        <h1>
+            Inscription
+        </h1>
+        <form [formGroup]="userForm" (ngSubmit)="authentification()">
+            <ion-label>
+                Email
+            </ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+            <ion-label>
+                Mot de passe
+            </ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+            <div>
+                <ion-button [disabled]="!this.isValid" type="submit" size="large"></ion-button>
+                <ion-button size="large"></ion-button>
+            </div>
+        </form>
+    </div>
+</ion-content>

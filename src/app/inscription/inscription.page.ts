@@ -31,7 +31,6 @@ export class InscriptionPage implements OnInit {
     private router:Router) { }
 
   ngOnInit() {
-
     this.userForm = this.formBuilder.group({
       name: "",
       firstname: "",

@@ -22,8 +22,8 @@ export class ReinitialisationMdpPage implements OnInit {
     if (this.email != "" && EmailUtils.verifyEmail(this.email)){
 
       // le mail est valide, envoi de la requete
-      this.cantiniereApi.forgotPassword(this.email).subscribe((response) => {
-
+      this.cantiniereApi.forgotPassword(this.email).subscribe((response: any) => {
+        
         this.email = null
 
         ToastUtils.presentToast("Un mail vient de vous être renvoyé", "success", this.toastController)

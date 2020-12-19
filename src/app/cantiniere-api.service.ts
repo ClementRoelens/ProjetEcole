@@ -12,7 +12,7 @@ export class CantiniereAPIService {
   constructor(private http: HttpClient) {}
 
   forgotPassword(email: string){
-    return this.http.post(BASE_URL + "forgotpassword?email=" + email, null)
+    return this.http.post(BASE_URL + "forgotpassword?email=" + email, {observe : "response"})
   }
   
   findUser(id: number, token: string){

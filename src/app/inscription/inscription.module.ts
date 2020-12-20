@@ -14,7 +14,7 @@ import { HeaderComponent } from '../header/header.component';
     CommonModule,
     FormsModule,
     FormsModule,
-     ReactiveFormsModule,
+    ReactiveFormsModule,
     IonicModule,
     InscriptionPageRoutingModule
   ],

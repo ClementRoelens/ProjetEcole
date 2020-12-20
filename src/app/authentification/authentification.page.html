@@ -6,17 +6,17 @@
             Inscription
         </h1>
         <form [formGroup]="userForm" (ngSubmit)="authentification()">
-            <ion-label>
+            <ion-label class="ion-margin-bottom" color="light">
                 Email
             </ion-label>
             <ion-input type="email" formControlName="email"></ion-input>
-            <ion-label>
+            <ion-label class="ion-margin-bottom" color="light">
                 Mot de passe
             </ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
             <div>
-                <ion-button [disabled]="!this.isValid" type="submit" size="large"></ion-button>
-                <ion-button size="large"></ion-button>
+                <ion-button [disabled]="!this.isValid" type="submit" size="large">Valider</ion-button>
+                <ion-button size="large" routerLink="reinitialisation-mdp">Mot de passe oublié</ion-button>
             </div>
         </form>
     </div>

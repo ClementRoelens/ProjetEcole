@@ -39,6 +39,7 @@ export class AuthentificationPage implements OnInit {
     this.service.authentification(this.userForm.value.email,this.userForm.value.password).subscribe(res => {
       let token = res.headers.get("Authorization");
       sessionStorage.setItem("JWT", token);
+      console.log(token);
       this.router.navigate(["home"]);
     },
     error => {

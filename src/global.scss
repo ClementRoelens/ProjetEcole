@@ -16,7 +16,12 @@
         background:#432928;
     }
 } 
-  
+.modal-wrapper.sc-ion-modal-md{
+    --width:1000px;
+    --height:629px;
+    // overflow: hidden;
+  }
+
 
 
 /* Core CSS required for Ionic components to work properly */

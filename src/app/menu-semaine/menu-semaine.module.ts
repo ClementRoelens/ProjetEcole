@@ -8,8 +8,10 @@ import { MenuSemainePageRoutingModule } from './menu-semaine-routing.module';
 
 import { MenuSemainePage } from './menu-semaine.page';
 import { HeaderComponent } from '../header/header.component';
-import { LayoutModule} from '@angular/cdk/layout'
-
+import { LayoutModule} from '@angular/cdk/layout';
+import { DashboardDirective } from './dashboard.directive'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { WeekCountComponent } from './week-count/week-count.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,8 @@ import { LayoutModule} from '@angular/cdk/layout'
     IonicModule,
     MenuSemainePageRoutingModule,
     LayoutModule
-  ],
-  declarations: [MenuSemainePage, HeaderComponent]
+    ],
+  declarations: [MenuSemainePage, HeaderComponent, DashboardDirective,DashboardComponent,WeekCountComponent],
+  providers:[]
 })
 export class MenuSemainePageModule {}

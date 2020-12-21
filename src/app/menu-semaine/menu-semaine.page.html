@@ -4,59 +4,63 @@
    <app-header></app-header>
   </ion-toolbar>
 </ion-header>
-
-<ion-content  class="card-content">
+<!-- <app-test (eventcoucou)="sayCoucou($event)"></app-test> -->
+<ion-content fullsceen="true"  class="card-content">
   <section id="bg">
-    <div class='flex'>
+    <!-- <div class='flex'>
         <h1>Menu de la Semaine</h1>
-    </div>
+    </div> -->
     <div  class='flex content'>
       <!-- <ion-button (click)="showModal()"></ion-button> -->
       <ion-grid  >
-        <ion-row  size-xs >
-          <ion-col size-sm size="12"  *ngFor="let menu of weeklyMenu, let i =index" >
-        <article width="100%" >
+        <ion-row  size="2" >
+          <!-- <app-dashboard (WeekChange)="showMeal($event)"  [week]="showActualWeek()" ></app-dashboard> -->
+
+          <ion-col  [dashboard]="i"    size-sm size="12"  *ngFor="let wikiMeal of weeklyMeals; let i =index; trackBy: trackByFn" >
+            <app-dashboard *ngIf="i===0"  (WeekChange)="showMeal($event)"  [week]="showActualWeek()" ></app-dashboard>
+            
+            <article *ngIf="i!==0" [ngStyle]="{'width':colSize}">
           <ion-card >
             <ion-card-header>
-              
+              <ion-img   [src]="wikiMeal.src " (click)="showModal(wikiMeal)"></ion-img>
+
               <ion-card-title>
-                <a class='btn style_button' routerLink="/carte">
-                {{ menu.label }}
+                <a (click)="showModal(wikiMeal)" class='btn style_button'>
+                COMMANDER
                 </a>
               </ion-card-title>
-              <ion-card-subtitle>
-                <div >{{ menu.priceDF }}</div >
+              <ion-card-subtitle (click)="showModal(wikiMeal)">
+                <h2 ><p>{{ wikiMeal.priceDF  }}<strong>€</strong></p></h2 >
                 
               </ion-card-subtitle>
             </ion-card-header>
           
             <ion-card-content>
-              <ion-img [src]="imageMenu" (click)="showModal()"></ion-img>
               <!-- {{ imageMenu }} -->
               <!-- Keep close to Nature's heart... and break clear away, once in awhile,
               and climb a mountain or spend a week in the woods. Wash your spirit clean. -->
             </ion-card-content>
           
-            <ion-card-subtitle><p>Repas</p></ion-card-subtitle>
-            <div (click)="showModal()">
-              <div class='plat'>
-                <ul >
-                  <li *ngFor="let plat of menu.meals; let i=index">{{ plat.label }}</li>
-                </ul>
+            <ion-card-subtitle ><a routerLink="/carte"><p>Voir la carte</p></a></ion-card-subtitle>
+            <div (click)="showModal(wikiMeal)">
+              <div class='plat' >
+                <!-- <ul >
+                  <li *ngFor="let plat of menu.meals; let i=index" > -->
+                        {{wikiMeal.description }}
+                        <p>{{ wikiMeal  }}</p>
+                    <!-- <span *ngFor="let meal of menu.meals">
+                      <p *ngIf="meal.isAvailable">{{ meal.label }}
+                        <ion-img #propsForModal [src]="imageMeal"></ion-img>
+                      </p> -->
+
+
+                
+                    <!-- </span> -->
               </div>
-                <!-- <ion-card-subtitle><p>Plat "deux"</p></ion-card-subtitle>
-              <div class='plat'>
-                <ul>
-                  <li *ngFor="let plat of menu.plat2; let i=index">{{ plat }}</li>
-                </ul>
-              </div> -->
             </div>
           </ion-card>
         </article>
       </ion-col>
-      
-      
-      
         </ion-row>
       </ion-grid>
         

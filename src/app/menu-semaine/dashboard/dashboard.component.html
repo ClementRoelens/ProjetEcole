@@ -1,0 +1,61 @@
+<article  [ngStyle]="{'width':colSize}">
+  <!-- <div class="flex">
+        <div><a class="btn style_button"> lundi</a>
+        <p>0€</p></div>
+        <div><a class="btn style_button"> mardi</a>
+          <p>0€</p></div>
+        <div><a class="btn style_button"> mercredi</a>
+          <p>0€</p></div>
+        <div><a class="btn style_button"> jeudi</a>
+          <p>0€</p></div>
+        <div><a class="btn style_button"> vendredi</a>
+          <p>0€</p></div>
+    </div> -->
+    <!-- <app-test (eventcoucou)="sayCoucou($event)"></app-test> -->
+  <ion-card >
+    <ion-card-header>
+      <!-- <ion-img   [src]="wikiMeal.src" (click)="showModal(wikiMeal)"></ion-img> -->
+
+      <ion-card-title>
+        <!-- <a (click)="showModal(wikiMeal)" class='btn style_button' >
+        COMMANDER
+        </a> -->
+      </ion-card-title>
+      <!-- <ion-card-subtitle (click)="showModal(wikiMeal)">
+        <h2 ><p>{{ wikiMeal.priceDF }}<strong>€</strong></p></h2 >
+        
+      </ion-card-subtitle> -->
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item>
+        <app-week-count [week]="week" (eventIncrement)="nextWeek($event)" (eventDecrement)="nextWeek($event)"></app-week-count>
+        <!-- <ion-datetime month-names="janvier" displayFormat="MMM DD, YYYY"></ion-datetime> -->
+      </ion-item>      <!-- {{ imageMenu }} -->
+      <!-- Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean. -->
+    </ion-card-content>
+  
+    <!-- <ion-card-subtitle ><p><ion-label>Total</ion-label></p></ion-card-subtitle> -->
+    <div >
+      <div class='plat' >
+        <!-- <ul >
+          <li *ngFor="let plat of menu.meals; let i=index" > -->
+
+
+                <!-- {{wikiMeal.description}}
+                <p>{{ wikiMeal.label }}</p> -->
+
+
+            <!-- <span *ngFor="let meal of menu.meals">
+              <p *ngIf="meal.isAvailable">{{ meal.label }}
+                <ion-img #propsForModal [src]="imageMeal"></ion-img>
+              </p> -->
+
+
+        
+            <!-- </span> -->
+      </div>
+    </div>
+  </ion-card>
+</article>

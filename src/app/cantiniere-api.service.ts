@@ -27,11 +27,17 @@ export class CantiniereAPIService {
   getMenu(){
     return this.http.get(BASE_URL + "menu/findallavailablefortoday")
   }
+  getMeal(week:number){
+    return this.http.get(BASE_URL + "meal/findallavailableforweek/"+week)
+  }
   getMenuImg(id:number){
     return this.http.get(BASE_URL + "menu/findimg/"+id)
   }
   getMealImg(id:number){
     return this.http.get(BASE_URL + "meal/findimg/"+id)
+  }
+  updateMenuImage(id:number,body){
+    return this.http.patch(BASE_URL + "menu/updateimg/"+id,body)
   }
   updateUser(user: User, token: string){
     let options = {

@@ -44,6 +44,7 @@ interface Image{
 const URL ="http://localhost:8100/lunchtime/" 
 // const moment = require('moment')
 const LOW_SCREEN= '(max-width:767px)'
+const MODAL_SCREEN='(min-width:1000px)'
 const HIGH_SCREEN = '(min-width:768px)'
 const DEV_IMAGEBODY:Image={
   imagePath: "img/menu/default.png",

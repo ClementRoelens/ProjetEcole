@@ -28,6 +28,9 @@ export class ModalPage implements OnInit {
   dismiss(){
     this.modalCtrl.dismiss()
   }
+  changeTab(e){
+    console.log(e.detail.value)
+  }
   // displayImage(id:number){
   //   this.apiService.getMealImg(id).subscribe((result:Image)=>{
   //     this.image = result.image64

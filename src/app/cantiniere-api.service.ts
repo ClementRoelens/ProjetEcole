@@ -24,6 +24,22 @@ export class CantiniereAPIService {
     return this.http.get(BASE_URL + "user/find/" + id, options)
   }
 
+  findAllUser(token:string){
+    let options = {
+      headers: {"Authorization": token}
+    }
+
+    return this.http.get(BASE_URL+"user/findall",options);
+  }
+
+  findImg(id:number,token:string){
+    let options = {
+      headers: {"Authorization": token}
+    }
+
+    return this.http.get(BASE_URL+"user/findimg/"+id,options);
+  }
+
   updateUser(user: User, token: string){
     let options = {
       headers: {"Authorization": token}

@@ -7,7 +7,7 @@ import { PopoverController } from '@ionic/angular';
 })
 export class MypopComponent implements OnInit {
 
-  @Input("username") username:string;
+  @Input("user") user:string;
   @Input("isConnected") isConnected:boolean;
 
   constructor(public popover: PopoverController) { }

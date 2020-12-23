@@ -3,7 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { CantiniereAPIService } from '../cantiniere-api.service';
-import  moment from 'moment';
+import moment from 'moment';
 
 interface Meals {
   id: number
@@ -219,4 +219,5 @@ trackByFn(index, item){
     })
     return await modal.present()
   }
+  
 }

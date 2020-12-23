@@ -1,9 +1,51 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>inscription</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
+
 
 <ion-content>
-
+  <div>
+    <h1>
+      Inscription
+    </h1>
+    <form [formGroup]="userForm" (ngSubmit)="register()">
+      <ion-label class="ion-margin-bottom" color="light">
+        Nom
+      </ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+      <ion-label class="ion-margin-bottom" color="light">
+        Prénom
+      </ion-label>
+      <ion-input type="text" formControlName="firstname"></ion-input>
+      <ion-label class="ion-margin-bottom" color="light">
+        Sexe
+      </ion-label>
+      <ion-select class="ion-hide-sm-up" formControlName="sex">
+        <ion-select-option value="0">Homme</ion-select-option>
+        <ion-select-option value="1">Femme</ion-select-option>
+        <ion-select-option value="2">Autre</ion-select-option>
+      </ion-select>
+      <select class="ion-hide-sm-down" formControlName="sex">
+        <option value="" selected="selected">Veuillez sélectionner une valeur</option>
+        <option value="0">Homme</option>
+        <option value="1">Femme</option>
+        <option value="2">Autre</option>
+      </select>
+      <ion-label class="ion-margin-bottom" color="light">
+        Email
+      </ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+      <ion-label class="ion-margin-bottom" color="light">
+        Mot de passe
+      </ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-label class="ion-margin-bottom" color="light">
+        Vérifier mot de passe
+      </ion-label>
+      <ion-input type="password" formControlName="passwordCheck"></ion-input>
+      <div>
+        <ion-button [disabled]="!this.isValid" type="submit" size="large">
+          Valider
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>

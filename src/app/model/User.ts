@@ -1,7 +1,7 @@
 import { Image } from './Image';
 
 export interface User {
-    id: number,
+    id?: number,
     adress?: string,
     wallet: number,
     postalCode?: string,

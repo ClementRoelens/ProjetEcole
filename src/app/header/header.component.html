@@ -11,7 +11,7 @@
                 <div class="ion-hide-sm-down" width-sm="0">
                     <ion-button *ngIf="!isConnected" [routerLink]="['/inscription']">S'inscrire</ion-button>
                     <ion-button *ngIf="!isConnected" [routerLink]="['/authentification']">Se connecter</ion-button>
-                    <ion-button *ngIf="isConnected" [routerLink]="['/infos-user']">{{user.name}}</ion-button>
+                    <ion-button *ngIf="isConnected" [routerLink]="['/infos-user']">{{user.firstname}}</ion-button>
                     <ion-img [routerLink]="['/panier']" src="/assets/images/panier.png" alt="Panier" class="clickable"></ion-img>
                     <ion-img [src]="avatar" alt="Avatar"></ion-img>
                 </div>

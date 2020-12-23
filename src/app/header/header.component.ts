@@ -11,18 +11,18 @@ import { MypopComponent } from './mypop/mypop.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  user: User = {
-    "id": null,
-    "name": "Invité",
-    "firstname": null,
-    "email": null,
-    "postalCode": null,
-    "town": null,
-    "phone": null,
-    "sex": null,
-    "wallet": null,
-    password: ""
-  };
+  user: User;
+    // "id": null,
+    // "name": "Invité",
+    // "firstname": null,
+    // "email": null,
+    // "postalCode": null,
+    // "town": null,
+    // "phone": null,
+    // "sex": null,
+    // "wallet": null,
+    // password: ""
+  
   avatar: string = "assets/images/guest.png";
   isConnected: boolean = false;
   currentPopover;
@@ -40,9 +40,10 @@ export class HeaderComponent implements OnInit {
       console.log("Header init : le token est présent");
       this.isConnected = true;
       let storedUser = JSON.parse(sessionStorage.getItem("User"));
-      for (let element in storedUser) {
-        this.user[element] = storedUser[element];
-      }
+      this.user = storedUser;
+      // for (let element in storedUser) {
+      //   this.user[element] = storedUser[element];
+      // }
       let storedAvatar = sessionStorage.getItem("Avatar");
       console.log("Test de la présence de l'avatar en mémoire");
       if (!storedAvatar) {

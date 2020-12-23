@@ -11,6 +11,7 @@ export class MypopComponent implements OnInit {
   @Input("user") user:string;
   @Input("isConnected") isConnected:boolean;
 
+
   constructor(public popover: PopoverController, private route:Router) { }
 
   ngOnInit() { }
@@ -24,7 +25,9 @@ export class MypopComponent implements OnInit {
     sessionStorage.removeItem("JWT");
     sessionStorage.removeItem("User");
     sessionStorage.removeItem("Avatar");
+    console.log("PopOver : items en session supprimés");
     this.route.navigate(['home']);
     this.close();
+    
   }
 }

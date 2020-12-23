@@ -23,7 +23,7 @@ export class AuthentificationPage implements OnInit {
     private formBuilder: FormBuilder,
     private service: CantiniereAPIService,
     private toastController: ToastController,
-    private router: Router
+    private route: Router
   ) { }
 
   ngOnInit() {
@@ -37,13 +37,25 @@ export class AuthentificationPage implements OnInit {
       if ((value.email !== "") && (value.password !== "")) {
         this.isValid = true;
       }
+      else {
+        this.isValid = false;
+      }
     });
   }
 
   authentification() {
+    // On désactive toutes les actions le temps que la réponse du serveur arrive
+    let body = document.querySelector('body');
+    let elements:any = document.querySelectorAll('ion-input , ion-button');
+    elements.forEach(element => {
+      element.disabled = true;
+    });
+    body.style.cursor = "wait";
+
     this.service.authentification(this.userForm.value.email, this.userForm.value.password).subscribe(res => {
       this.rawToken = res.headers.get("Authorization");
       sessionStorage.setItem("JWT", this.rawToken);
+      console.log("Authentification : token placé en mémoire");
       this.decodedToken = this.helper.decodeToken(this.rawToken);
       let storedUser = {
         "id": this.decodedToken.user.id,
@@ -58,10 +70,17 @@ export class AuthentificationPage implements OnInit {
         "wallet": this.decodedToken.user.wallet,
       };
       sessionStorage.setItem("User",JSON.stringify(storedUser));
-      this.router.navigate(["home"]);
+      // On laisse de nouveau l'utilisateur agir une fois la réponse reçue
+      body.style.cursor = "initial"
+      elements.forEach(element => {
+        element.disabled = false;
+      });
+      this.route.navigate(["home"]);
     },
       error => {
         ToastUtils.presentToast("Une erreur s'est produite", "danger", this.toastController);
       });
+      
+
   }
 }

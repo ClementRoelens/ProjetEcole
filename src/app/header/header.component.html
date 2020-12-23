@@ -11,9 +11,9 @@
                 <div class="ion-hide-sm-down" width-sm="0">
                     <ion-button *ngIf="!isConnected" routerLink="/inscription">S'inscrire</ion-button>
                     <ion-button *ngIf="!isConnected" routerLink="/authentification">Se connecter</ion-button>
-                    <ion-button *ngIf="isConnected" routerLink="/infos-user">{{(user)?user.name:"Invité"}}</ion-button>
+                    <ion-button *ngIf="isConnected" routerLink="/infos-user">{{user.name}}</ion-button>
                     <ion-img routerLink="/panier" src="/assets/images/panier.png" alt="Panier" class="clickable"></ion-img>
-                    <ion-img [src]="(avatar)?avatar:'/assets/images/guest.png'" alt="Avatar"></ion-img>
+                    <ion-img [src]="avatar" alt="Avatar"></ion-img>
                 </div>
                 <img [src]="(avatar)?avatar:'/assets/images/guest.png'" alt="Avatar" class="ion-hide-sm-up">
                 <ion-icon (click)="menuPopover($event)" name="menu-outline" class="ion-hide-sm-up" size-sm="1"></ion-icon>

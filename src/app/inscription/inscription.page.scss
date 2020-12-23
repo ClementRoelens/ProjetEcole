@@ -4,18 +4,16 @@ ion-content {
 
 h1{
     color:white;
-    // font-size:60px;
     text-align:center;
     margin:auto;
 }
 
 ion-button{
-  // position:relative;
   margin:auto;
   margin-top:15px;
   display:block;
-  // text-transform: none;
   width:110px;
+  text-transform: none;
 }
 
 ion-select , ion-input {

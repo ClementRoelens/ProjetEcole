@@ -3,7 +3,7 @@
 <ion-content>
     <div>
         <h1>
-            Inscription
+            Se connecter
         </h1>
         <form [formGroup]="userForm" (ngSubmit)="authentification()">
             <ion-label class="ion-margin-bottom" color="light">
@@ -16,7 +16,7 @@
             <ion-input type="password" formControlName="password"></ion-input>
             <div>
                 <ion-button [disabled]="!this.isValid" type="submit" size="large">Valider</ion-button>
-                <ion-button size="large" routerLink="reinitialisation-mdp">Mot de passe oublié</ion-button>
+                <ion-button size="large" [routerLink]="['/reinitialisation-mdp']" class="ion-text-wrap">Mot de passe oublié</ion-button>
             </div>
         </form>
     </div>

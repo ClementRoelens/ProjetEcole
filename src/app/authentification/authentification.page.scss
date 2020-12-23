@@ -12,11 +12,16 @@ ion-button{
   margin:auto;
   margin-top:15px;
   display:block;
-  width:110px;
+  width:130px;
+  height:55px;
+  font-size:15px;
+  text-transform: none;
 }
 
 ion-input {
   background-color: white;
+  --padding-start:16px;
+  
 }
 
 @media (max-width:576px){
@@ -35,9 +40,7 @@ ion-input {
     margin-bottom:10px;
   }
 
-  ion-input {
-    --padding-start:16px;
-  }
+ 
 }
 
 @media (min-width:576px){

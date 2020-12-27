@@ -1,4 +1,8 @@
-<app-header></app-header>
+<app-header 
+[isConnected]="isConnected"
+[avatar]="avatar"
+>
+</app-header>
 <ion-content>
     <h1>Bienvenue à la cafétéria</h1>
     <ion-button [routerLink]="['/menu-semaine']" size="large" class="ion-text-wrap">

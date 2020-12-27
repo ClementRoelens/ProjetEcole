@@ -5,7 +5,6 @@ import { ToastController } from '@ionic/angular';
 import { CantiniereAPIService } from '../cantiniere-api.service';
 import { ToastUtils } from '../utils/ToastUtils';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
 
 @Component({
   selector: 'app-authentification',
@@ -46,7 +45,7 @@ export class AuthentificationPage implements OnInit {
   authentification() {
     // On désactive toutes les actions le temps que la réponse du serveur arrive
     let body = document.querySelector('body');
-    let elements:any = document.querySelectorAll('ion-input , ion-button');
+    let elements: any = document.querySelectorAll('ion-input , ion-button');
     elements.forEach(element => {
       element.disabled = true;
     });
@@ -55,32 +54,34 @@ export class AuthentificationPage implements OnInit {
     this.service.authentification(this.userForm.value.email, this.userForm.value.password).subscribe(res => {
       this.rawToken = res.headers.get("Authorization");
       sessionStorage.setItem("JWT", this.rawToken);
-      console.log("Authentification : token placé en mémoire");
       this.decodedToken = this.helper.decodeToken(this.rawToken);
-      let storedUser = {
-        "id": this.decodedToken.user.id,
-        "name": this.decodedToken.user.name,
-        "firstname": this.decodedToken.user.firstname,
-        "email": this.decodedToken.user.email,
-        "adress": this.decodedToken.user.address,
-        "postalCode": this.decodedToken.user.postalCode,
-        "town": this.decodedToken.user.town,
-        "phone": this.decodedToken.user.phone,
-        "sex": this.decodedToken.user.sex,
-        "wallet": this.decodedToken.user.wallet,
-      };
-      sessionStorage.setItem("User",JSON.stringify(storedUser));
-      // On laisse de nouveau l'utilisateur agir une fois la réponse reçue
-      body.style.cursor = "initial"
-      elements.forEach(element => {
-        element.disabled = false;
+      this.service.findImg(this.decodedToken.user.id, this.rawToken).subscribe((img: any) => {
+        let storedUser = {
+          "id": this.decodedToken.user.id,
+          "name": this.decodedToken.user.name,
+          "firstname": this.decodedToken.user.firstname,
+          "email": this.decodedToken.user.email,
+          "adress": this.decodedToken.user.address,
+          "postalCode": this.decodedToken.user.postalCode,
+          "town": this.decodedToken.user.town,
+          "phone": this.decodedToken.user.phone,
+          "sex": this.decodedToken.user.sex,
+          "wallet": this.decodedToken.user.wallet,
+          "image": img
+        };
+        sessionStorage.setItem("User", JSON.stringify(storedUser));
+        // On laisse de nouveau l'utilisateur agir une fois la réponse reçue
+        body.style.cursor = "initial"
+        elements.forEach(element => {
+          element.disabled = false;
+        });
+        this.route.navigate(["home"]);
       });
-      this.route.navigate(["home"]);
     },
       error => {
         ToastUtils.presentToast("Une erreur s'est produite", "danger", this.toastController);
       });
-      
+
 
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 
@@ -11,7 +11,6 @@ export class MypopComponent implements OnInit {
   @Input("user") user:string;
   @Input("isConnected") isConnected:boolean;
 
-
   constructor(public popover: PopoverController, private route:Router) { }
 
   ngOnInit() { }
@@ -21,13 +20,9 @@ export class MypopComponent implements OnInit {
   }
 
   disconnect(){
-    this.isConnected = false;
     sessionStorage.removeItem("JWT");
     sessionStorage.removeItem("User");
-    sessionStorage.removeItem("Avatar");
-    console.log("PopOver : items en session supprimés");
-    this.route.navigate(['home']);
-    this.close();
-    
+    this.isConnected = false;
+    this.route.navigate(["home"]);
   }
 }

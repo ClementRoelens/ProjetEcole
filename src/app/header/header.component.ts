@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { CantiniereAPIService } from '../cantiniere-api.service';
@@ -10,10 +10,10 @@ import { MypopComponent } from './mypop/mypop.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  user: User;  
-  avatar: string = "assets/images/guest.png";
-  isConnected: boolean = false;
+export class HeaderComponent implements OnChanges, OnInit {
+  user: User;
+  @Input() avatar: string = "assets/images/guest.png";
+  @Input() isConnected: boolean;
   currentPopover;
 
   constructor(
@@ -23,35 +23,24 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("Header (OnInit début) : Valeur de isConnected à l'init : "+this.isConnected);
+    this.initialization();
+  }
+
+  ngOnChanges() {
+    this.initialization();
+  }
+
+  initialization() {
     let token: string = sessionStorage.getItem("JWT");
     // Si le token est présent, c'est que l'utilisateur est connecté et que ses données sont présentes dans le sessionStorage
     if (token) {
       this.isConnected = true;
-      console.log("Header (OnInit,token présent): valeur de isConnected : " + this.isConnected);
-      let storedUser = JSON.parse(sessionStorage.getItem("User"));
-      this.user = storedUser;
-      let storedAvatar = sessionStorage.getItem("Avatar");
-      // console.log("Header : Test de la présence de l'avatar en mémoire");
-      if (!storedAvatar) {
-        // console.log("Header : Avatar non présent, on fait donc une requête pour le chercher");
-        this.service.findImg(this.user.id, token).subscribe((img: any) => {
-          // console.log("Header : Avatar rendu par le serveur");
-          this.avatar = "http://localhost:8080/lunchtime/" + img.imagePath;
-          sessionStorage.setItem("Avatar", this.avatar);
-        });
-      }
-      else {
-        // console.log("Header : Avatar présent");
-        this.avatar = storedAvatar;
-        
-      }
+      this.user = JSON.parse(sessionStorage.getItem("User"));
+      this.avatar = "http://localhost:8080/lunchtime/"+this.user.image.imagePath;
     }
-    else{
+    else {
       this.isConnected = false;
-      console.log("Header (OnInit, pas de token) : Valeur de isConnected : "+this.isConnected);
     }
-    
   }
 
   async menuPopover(ev: any) {
@@ -65,6 +54,7 @@ export class HeaderComponent implements OnInit {
         "user": this.user
       }
     });
+    
     this.currentPopover = popover;
     return await popover.present();
   }
@@ -72,10 +62,8 @@ export class HeaderComponent implements OnInit {
   disconnect() {
     sessionStorage.removeItem("JWT");
     sessionStorage.removeItem("User");
-    sessionStorage.removeItem("Avatar");
     this.avatar = "assets/images/guest.png";
     this.isConnected = false;
-    console.log("Header (disconnect) : Valeur de isConnected : "+this.isConnected);
     this.route.navigate(["home"]);
   }
 

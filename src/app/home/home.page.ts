@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +7,22 @@ import { Component,OnInit } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
- 
-  ngOninit(){
-    console.log("Home onInit");
+  isConnected: boolean = false;
+  avatar: string = "assets/images/guest.png";
+
+  constructor() { }
+
+  ionViewWillEnter() {
+    let token = sessionStorage.getItem("JWT");
+    if (token) {
+      this.isConnected = true;
+      let user = JSON.parse(sessionStorage.getItem("User"));
+      this.avatar = "http://localhost:8080/lunchtime/"+user.image.imagePath;
+    }
+    else {
+      this.isConnected = false;
+      this.avatar = "assets/images/guest.png";
+    }
   }
+
 }

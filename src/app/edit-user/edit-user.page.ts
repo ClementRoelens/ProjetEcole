@@ -16,29 +16,19 @@ export class EditUserPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private service: CantiniereAPIService, private toastController: ToastController, private route: ActivatedRoute) {}
 
-  // TODO: requeter user
-  user: User = {id: 101,  
-    adress: "Test d'adresse",
-    wallet: 999,
-    postalCode: "59100",
-    email: "mail@gmail.com",
-    isLunchLady: false,
-    password: "monMotDePasse",
-    name: "Doe",
-    firstname: "John",
-    phone: "0123456789",
-    town: "Washington Township",
-    sex: 0,
-    image: {imagePath: "../../assets/images/logo.png",
-            image64: ""}}
-
+  token: string
+  user: User
   userForm: FormGroup
   isValidateEnabled: boolean = false
 
   ngOnInit() {
 
-    let userId = this.route.snapshot.paramMap.get("id")
-    // TODO: requêter l'user depuis le web service avec l'id et le token
+    // User et Token recupéré depuis la sessionStorage
+    // ils existent forcement car on ne peut acceder à cette page que si on est connecté
+    this.user = JSON.parse(sessionStorage.getItem("User"))
+    this.token = sessionStorage.getItem("JWT")
+
+    //let userId = this.route.snapshot.paramMap.get("id")
 
     this.userForm = this.formBuilder.group({
       email: this.user.email,
@@ -66,13 +56,16 @@ export class EditUserPage implements OnInit {
         this.user.adress = values.adress
         this.user.phone = values.phone
         
-        /*
-        this.service.updateUser(this.user, "TOKEN").subscribe((response) => {
+        this.service.updateUser(this.user, this.token).subscribe((response) => {
+
+          ToastUtils.presentToast("Informations modifées avec succès", "success", this.toastController)
+
+          // mise à jour de l'utilisateur en sessionStorage
+          sessionStorage.setItem("User", JSON.stringify(this.user))
 
         }, (error) => {
-
+          ToastUtils.presentToast("Une erreur s'est produite", "danger", this.toastController)
         })
-        */
 
       } else {
         ToastUtils.presentToast("Veuillez saisir un email valide", "danger", this.toastController)

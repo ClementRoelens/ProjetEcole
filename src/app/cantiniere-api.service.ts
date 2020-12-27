@@ -62,7 +62,7 @@ export class CantiniereAPIService {
       headers: {"Authorization": token}
     }
 
-    return this.http.post(BASE_URL + "user/update/" + user.id, user, {headers: options.headers, observe : "response"})
+    return this.http.patch(BASE_URL + "user/update/" + user.id, user, {headers: options.headers, observe : "response"})
   }
 
   register(user:User){

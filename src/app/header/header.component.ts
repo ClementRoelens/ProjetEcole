@@ -65,6 +65,7 @@ export class HeaderComponent implements OnChanges, OnInit {
     this.avatar = "assets/images/guest.png";
     this.isConnected = false;
     this.route.navigate(["home"]);
+    location.reload();
   }
 
 }

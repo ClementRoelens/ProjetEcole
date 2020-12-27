@@ -117,4 +117,12 @@ export class InscriptionPage implements OnInit {
     }
   }
 
+  registerKey(event){
+    if (event.key == "Enter"){
+      if (this.isValid){
+        this.register();
+      }
+    }
+  }
+
 }

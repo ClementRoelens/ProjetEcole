@@ -24,5 +24,6 @@ export class MypopComponent implements OnInit {
     sessionStorage.removeItem("User");
     this.isConnected = false;
     this.route.navigate(["home"]);
+    location.reload();
   }
 }

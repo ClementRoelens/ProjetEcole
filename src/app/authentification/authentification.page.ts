@@ -41,6 +41,13 @@ export class AuthentificationPage implements OnInit {
       }
     });
   }
+  authentificationKey(event){
+    if (event.key == "Enter"){
+      if (this.isValid){
+        this.authentification();
+      }
+    }
+  }
 
   authentification() {
     // On désactive toutes les actions le temps que la réponse du serveur arrive
@@ -78,8 +85,14 @@ export class AuthentificationPage implements OnInit {
         this.route.navigate(["home"]);
       });
     },
-      error => {
-        ToastUtils.presentToast("Une erreur s'est produite", "danger", this.toastController);
+    (error:any) => {
+      if (error.status === 401)
+        ToastUtils.presentToast("Mot de passe ou e-mail incorrect", "danger", this.toastController);
+         // On laisse de nouveau l'utilisateur agir une fois la réponse reçue
+        body.style.cursor = "initial"
+        elements.forEach(element => {
+          element.disabled = false;
+        });
       });
 
 

@@ -40,7 +40,7 @@
       <ion-label class="ion-margin-bottom" color="light">
         Vérifier mot de passe
       </ion-label>
-      <ion-input type="password" formControlName="passwordCheck"></ion-input>
+      <ion-input (keyup)="registerKey($event)" type="password" formControlName="passwordCheck"></ion-input>
       <div>
         <ion-button [disabled]="!this.isValid" type="submit" size="large">
           Valider

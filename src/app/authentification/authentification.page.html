@@ -9,11 +9,11 @@
             <ion-label class="ion-margin-bottom" color="light">
                 Email
             </ion-label>
-            <ion-input type="email" formControlName="email"></ion-input>
+            <ion-input (keyup)="authentificationKey($event)" type="email" formControlName="email"></ion-input>
             <ion-label class="ion-margin-bottom" color="light">
                 Mot de passe
             </ion-label>
-            <ion-input type="password" formControlName="password"></ion-input>
+            <ion-input (keyup)="authentificationKey($event)" type="password" formControlName="password"></ion-input>
             <div>
                 <ion-button [disabled]="!this.isValid" type="submit" size="large">Valider</ion-button>
                 <ion-button size="large" [routerLink]="['/reinitialisation-mdp']" class="ion-text-wrap">Mot de passe oublié</ion-button>

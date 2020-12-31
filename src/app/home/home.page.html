@@ -1,13 +1,46 @@
 <app-header 
-[isConnected]="isConnected"
-[avatar]="avatar"
->
+    [isConnected]="isConnected" 
+    [avatar]="avatar"
+    [user]="user">
 </app-header>
 <ion-content>
-    <h1>Bienvenue à la cafétéria</h1>
-    <ion-button [routerLink]="['/menu-semaine']" size="large" class="ion-text-wrap">
-        <ion-text>
-            Consulter le menu de la semaine
-        </ion-text>
-    </ion-button>
+        <div *ngIf="!isLunchLady" class="contenu">
+            <h1 *ngIf="!isConnected">
+                Bienvenue à la cafétéria
+            </h1>
+            <h1 *ngIf="isConnected">
+                Bienvenue <br class="ion-hide-sm-up">{{user.firstname}} {{user.name}}
+            </h1>
+            <div class="boutons">
+                <ion-button [routerLink]="['/menu-semaine']" size="large" class="ion-text-wrap">
+                    Consulter le menu de la semaine
+                </ion-button>
+                <ion-button *ngIf="isConnected" size="large" class="ion-text-wrap">
+                    Consulter la carte
+                </ion-button>
+            </div>
+           
+        </div>
+        <div *ngIf="isLunchLady" class="contenu">
+            <h1>
+                Bienvenue cantinière
+            </h1>
+            <div class="boutons">
+                <ion-button [routerLink]="['/gestion-commandes']" size="large" class="ion-text-wrap">
+                    Gestion des commandes
+                </ion-button>
+                <ion-button [routerLink]="['/menu-semaine']" size="large" class="ion-text-wrap">
+                    Liste des menus
+                </ion-button>
+                <ion-button [routerLink]="['/carte']" size="large" class="ion-text-wrap">
+                    Gestion de la carte
+                </ion-button>
+                <ion-button [routerLink]="['/gestion-user']" size="large" class="ion-text-wrap">
+                    Gestion des utilisateurs
+                </ion-button>
+                <ion-button [routerLink]="['/configuration']" size="large" class="ion-text-wrap">
+                    Configuration
+                </ion-button>
+            </div> 
+        </div>
 </ion-content>

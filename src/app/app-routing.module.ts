@@ -58,7 +58,11 @@ const routes: Routes = [
   {
     path: 'panier',
     loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
+  },  {
+    path: 'configuration',
+    loadChildren: () => import('./configuration/configuration.module').then( m => m.ConfigurationPageModule)
   }
+
 
 ];
 

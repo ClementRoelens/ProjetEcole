@@ -2,7 +2,8 @@
 
 
 <ion-content>
-  <div>
+  <!-- Voici le contenu normal de la page, qui s'affiche si l'utilisateur n'est pas connecté -->
+  <div *ngIf="!isConnected" class="contenu">
     <h1>
       Inscription
     </h1>
@@ -47,5 +48,9 @@
         </ion-button>
       </div>
     </form>
+  </div>
+  <!-- S'il est connecté, on ne donne pas accès à cette requête -->
+  <div *ngIf="isConnected" class="contenu">
+    <h1>Vous êtes déjà connectés</h1>
   </div>
 </ion-content>

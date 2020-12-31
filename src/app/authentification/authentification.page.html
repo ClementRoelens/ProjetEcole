@@ -1,7 +1,8 @@
 <app-header></app-header>
 
 <ion-content>
-    <div>
+    <!-- Voici le contenu normal de la page, qui s'affiche si l'utilisateur n'est pas connecté -->
+    <div *ngIf="!isConnected" class="contenu">
         <h1>
             Se connecter
         </h1>
@@ -14,10 +15,15 @@
                 Mot de passe
             </ion-label>
             <ion-input (keyup)="authentificationKey($event)" type="password" formControlName="password"></ion-input>
-            <div>
+            <div id="buttons">
                 <ion-button [disabled]="!this.isValid" type="submit" size="large">Valider</ion-button>
                 <ion-button size="large" [routerLink]="['/reinitialisation-mdp']" class="ion-text-wrap">Mot de passe oublié</ion-button>
             </div>
         </form>
     </div>
+    <!-- S'il est connecté, on ne donne pas accès à cette page (et donc à la requête) -->
+    <div *ngIf="isConnected" class="contenu">
+        <h1>Vous êtes déjà connectés</h1>
+    </div>
+
 </ion-content>

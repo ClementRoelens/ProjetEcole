@@ -2,6 +2,14 @@ ion-content {
     --background: url("../../assets/images/wallpaper\ cafeteria.jpg") no-repeat center center / cover;
 }
 
+.contenu {
+  width:100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 h1{
     color:white;
     text-align:center;
@@ -24,6 +32,7 @@ ion-input {
   
 }
 
+
 @media (max-width:576px){
   h1 {
     font-size:30px;
@@ -39,9 +48,8 @@ ion-input {
     border-radius:10px;
     margin-bottom:10px;
   }
-
- 
 }
+
 
 @media (min-width:576px){
   h1 {
@@ -51,12 +59,20 @@ ion-input {
   }
 
   form {
-    width:800px;
+    max-width:800px;
     margin:auto;
   }
 
   ion-input {
     margin-bottom:40px;
+  }
+
+  #buttons {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    max-width:50%;
+    margin:auto;
   }
 }
 

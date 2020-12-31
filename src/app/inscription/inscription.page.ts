@@ -23,6 +23,7 @@ export class InscriptionPage implements OnInit {
   };
   userForm: FormGroup;
   isValid: boolean = false;
+  isConnected:boolean = false;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -31,6 +32,15 @@ export class InscriptionPage implements OnInit {
     private router:Router) { }
 
   ngOnInit() {
+    // Si un utilisateur est connecté, le template sera différent et on redirigera automatiquement vers l'accueil
+    if (sessionStorage.getItem("JWT")){
+      this.isConnected = true;
+      setTimeout(()=>{
+        this.router.navigate(['home']);
+      },3000);
+    }
+
+
     this.userForm = this.formBuilder.group({
       name: "",
       firstname: "",
@@ -52,7 +62,7 @@ export class InscriptionPage implements OnInit {
       this.isValid = tempValid;
     });
   }
-
+  
   register() {
     let value = this.userForm.value;
     if (this.userForm.value.password === this.userForm.value.passwordCheck) {
@@ -122,6 +132,12 @@ export class InscriptionPage implements OnInit {
       if (this.isValid){
         this.register();
       }
+    }
+  }
+
+  passwordStrenghtTest(password:string):boolean{
+    if (password.length >= 8) {
+      return true;
     }
   }
 

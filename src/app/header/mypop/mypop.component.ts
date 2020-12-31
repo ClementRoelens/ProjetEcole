@@ -23,7 +23,12 @@ export class MypopComponent implements OnInit {
     sessionStorage.removeItem("JWT");
     sessionStorage.removeItem("User");
     this.isConnected = false;
-    this.route.navigate(["home"]);
-    location.reload();
+    if (this.route.url === "/home"){
+      location.reload();
+    }
+    else {
+      this.route.navigate(["home"]);
+    }
+    this.close();
   }
 }

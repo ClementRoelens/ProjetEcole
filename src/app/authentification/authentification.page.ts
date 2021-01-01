@@ -114,7 +114,5 @@ export class AuthentificationPage implements OnInit {
           element.disabled = false;
         });
       });
-
-
   }
 }

@@ -34,6 +34,12 @@
         Email
       </ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
+      <!-- Le bloc suivant apparaît quand l'utilisateur tente de valider alors qu'il a entré un mot de passe trop faible -->
+      <ion-text *ngIf="passwordRule" color="danger" id="passwordRule">
+        <p>
+          Votre mot de passe doit faire 8 caractères au minimum et contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial
+        </p>
+      </ion-text>
       <ion-label class="ion-margin-bottom" color="light">
         Mot de passe
       </ion-label>
